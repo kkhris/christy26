@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blue Guardian | Christal Lyu</title>
+    <meta name="description" content="Blue Guardian case study by Christal Lyu." />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <style>
+      html,
+      body {
+        background: #ffffff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          background: #1c1c1c;
+        }
+      }
+    </style>
+    <link rel="prefetch" href="index.html" />
+    <link rel="stylesheet" href="styles.css?v=20260530-bg5" />
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Site navigation">
+      <nav class="nav-links">
+        <a class="is-active" href="index.html">Design</a>
+        <a href="about.html">About</a>
+        <a
+          href="https://drive.google.com/file/d/1d93qt_9L9ObPDxQ4qf8VoMVpE3SVUkau/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Resume
+          <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+          </svg>
+        </a>
+      </nav>
+
+      <div class="contact">
+        <h2>Let's Connect!</h2>
+        <p>
+          <a href="https://www.linkedin.com/in/lyuchristal" target="_blank" rel="noreferrer">
+            LinkedIn
+            <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+            </svg>
+          </a>
+          <a href="mailto:y44lyu@uwaterloo.ca">
+            Email
+            <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+            </svg>
+          </a>
+        </p>
+        <small>©Christal Lyu, 2026</small>
+      </div>
+    </aside>
+
+    <main class="page-shell case-page blue-guardian-page">
+      <div class="case-intro-group">
+        <header class="intro case-hero">
+          <h1>Blue Guardian, Generative AI Agent</h1>
+          <p>The conversational AI platform for youth wellness support.</p>
+        </header>
+
+        <dl class="case-meta" aria-label="Project metadata">
+          <div>
+            <dt>Role</dt>
+            <dd>Product Designer</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>1 Designer, 2 Developer, 1 Product Designer</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>Nov 2023 - June 2024</dd>
+          </div>
+        </dl>
+      </div>
+
+      <nav class="case-nav" aria-label="Case study sections">
+        <a href="#overview">Overview</a>
+        <a href="#problems">Problem</a>
+        <a class="case-nav-child" href="#decision-01"><span class="case-nav-index">01</span><span>Wrong Tone</span></a>
+        <a class="case-nav-child" href="#decision-02"><span class="case-nav-index">02</span><span>Borrowed Trust</span></a>
+        <a class="case-nav-child" href="#decision-03"><span class="case-nav-index">03</span><span>First 30 Seconds</span></a>
+        <a href="#outcome">Outcome</a>
+        <a href="#reflections">Reflections</a>
+      </nav>
+
+      <article class="case-study">
+        <section id="overview" class="case-section">
+          <div class="case-notice">
+            <p>
+              Blue Guardian is now closed after two years of operation. The product and website are no longer active, but i had a great time building it and learned a lot throughout the process!
+            </p>
+          </div>
+
+          <p>
+              In late 2023, I joined Blue Guardian as the sole founding designer to build a generative AI wellness platform for youth. Over an 8-month cycle, i owned the product's end-to-end user experience, designing the core conversational interface and executing a zero-budget growth strategy to acquire our initial users.
+          </p>
+
+          <figure class="case-video">
+            <iframe
+              src="https://www.youtube.com/embed/sQ47C15gL20?autoplay=1&mute=1&loop=1&playlist=sQ47C15gL20&controls=1&playsinline=1&rel=0&modestbranding=1"
+              title="Blue Guardian demo video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </figure>
+          <a
+            class="case-video-link"
+            href="https://www.youtube.com/watch?v=sQ47C15gL20"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="case-video-link-flower" aria-hidden="true">✿</span>
+            Watch full video
+            <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+            </svg>
+          </a>
+        </section>
+
+        <section id="problems" class="case-section">
+          <h2>Problem</h2>
+          <p>
+            Traditional clinical care is restricted by high costs and long waitlists. On top of that, social stigma creates a massive psychological barrier, causing most people to give up before taking the first step to look for help.
+          </p>            
+          <div class="case-insight">
+            <p>
+              In Canada, <span>26% of youth</span> report poor or fair mental health, but <span>more than 1 in 3</span> who need support never receive it.
+            </p>
+          </div>
+          <p class="case-source">Statistics Canada &amp; CIHI, 2023-2024</p>
+             
+          <p>
+            Blue Guardian wasn't built to fix the system. It was built for the moment before people decide to try. We focused on the friction occurring before clinical care even becomes an option: the lack of a low-stakes, accessible space where young people can reach out to support.
+          </p>  
+        </section>
+
+        <section id="decision-01" class="case-section">
+          <p class="case-kicker">Decision 01</p>
+          <h2>The Wrong Tone</h2>
+          <p>
+            By 2023, general-purpose LLMs were increasingly being used for mental health support.
+          </p>
+
+          <div class="case-stats">
+            <div>
+              <strong>12%</strong>
+              <span>of teens reported turning to AI chatbots for emotional support or advice</span>
+            </div>
+            <div>
+              <strong>93 min</strong>
+              <span>average daily time users spent on AI companion apps</span>
+            </div>
+          </div>
+          <p class="case-source">Common Sense Media, 2024</p>
+
+          <p>
+            However, most AI models are not optimized for emotional contexts. They rely on a rigid response style that fails to adapt to users' emotional states. 
+            Someone who's panicking and someone who just needs a push have completely different needs. Applying one default tone creates an immediate mismatch that triggers user drop-off.
+          </p>  
+          <div class="case-insight">
+            <p>
+              The well-intentioned provision of support may backfire and <span>lead to worse outcomes</span> when the supportive behavior <span>doesn't match the needs of the recipient.</span>
+            </p>
+          </div>
+          <p class="case-source">Selcuk &amp; Ong, Health Psychology, 2013</p>
+
+          <p>
+            This limitation created the core product gap. Blue Guardian offered different response modes based on emotional context, letting the conversation surface which one fit rather 
+            than asking users to decide upfront before interacting.
+          </p>
+          <div class="case-flow" aria-label="Blue Guardian adaptive support process flow">
+            <div class="case-flow-step case-flow-start">
+              <strong>1</strong>
+              <p>User<br />Message</p>
+            </div>
+            <i></i>
+            <div class="case-flow-step case-flow-new">
+              <strong>2</strong>
+              <p>Emotion<br />Detected</p>
+              <em>new</em>
+            </div>
+            <i class="case-flow-dashed"></i>
+            <div class="case-flow-step case-flow-new">
+              <strong>3</strong>
+              <p>Response<br />Options</p>
+              <em>new</em>
+            </div>
+            <i></i>
+            <div class="case-flow-step case-flow-original">
+              <strong>4</strong>
+              <p>AI<br />Adapts</p>
+            </div>
+          </div>
+          <p class="case-source">Other AI goes directly from step 1 to a fixed-tone response.</p>
+        </section>
+
+        <section id="decision-02" class="case-section">
+          <p class="case-kicker">Decision 02</p>
+          <h2>The Borrowed Trust</h2>
+          <p>
+            With no advertising budget, reaching our initial users felt nearly impossible, especially since the target 
+            audience are rarely proactive about seeking help. If they weren't going to find us, how could we find them?
+          </p>
+
+          <p>
+            User research pointed to a consistent pattern: people are more likely to seek support in environments they already feel comfortable in. That shaped how we thought about the channel.
+          </p>
+
+          <div class="case-channel-matrix" aria-label="Blue Guardian channel comparison matrix">
+            <div class="case-channel-cell case-channel-empty" aria-hidden="true"></div>
+            <div class="case-channel-cell case-channel-heading">Free</div>
+            <div class="case-channel-cell case-channel-heading">Trusted</div>
+            <div class="case-channel-cell case-channel-heading">Reach</div>
+
+            <div class="case-channel-cell case-channel-label">Paid ads</div>
+            <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+            <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+            <div class="case-channel-cell">
+              <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+              </svg>
+            </div>
+
+            <div class="case-channel-cell case-channel-label">Student influencers</div>
+            <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+            <div class="case-channel-cell"><span class="case-channel-varies">Varies</span></div>
+            <div class="case-channel-cell">
+              <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+              </svg>
+            </div>
+
+            <div class="case-channel-cell case-channel-label case-channel-selected">Campus peer accounts</div>
+            <div class="case-channel-cell case-channel-selected">
+              <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+              </svg>
+            </div>
+            <div class="case-channel-cell case-channel-selected">
+              <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+              </svg>
+            </div>
+            <div class="case-channel-cell case-channel-selected">
+              <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+              </svg>
+            </div>
+          </div>
+
+          <p>
+            We reached out to campus peer accounts that were student-run, free to partner with, and followed by thousands of incoming students. I designed marketing assets for these partnerships. 
+          </p>
+
+          <div class="case-marketing-placeholders" aria-label="Blue Guardian marketing asset placeholders">
+            <figure class="case-marketing-placeholder">
+              <img src="assets/blue-guardian-instagram-01.png" alt="Blue Guardian freshman year marketing asset" />
+            </figure>
+            <figure class="case-marketing-placeholder">
+              <img src="assets/blue-guardian-instagram-02.png" alt="Blue Guardian customizable chatbot marketing asset" />
+            </figure>
+            <figure class="case-marketing-placeholder">
+              <img src="assets/blue-guardian-instagram-03.png" alt="Blue Guardian voice integration marketing asset" />
+            </figure>
+          </div>
+
+          <p>
+            We acquired 300+ users within the first weeks of launch, with 0 spend on traditional marketing.
+          </p>
+        </section>
+
+        <section id="decision-03" class="case-section">
+          <p class="case-kicker">Decision 03</p>
+          <h2>Designing the First 30 Seconds</h2>
+          <p>
+            Acquiring users was only the first challenge. The next question was whether they'd come back.
+          </p>
+          <p>
+            Early onboarding sessions showed that users made trust decisions extremely quickly, especially in emotionally vulnerable 
+            moments. If the experience felt overwhelming, clinical, or emotionally cold, engagement dropped almost immediately.
+          </p>              
+          <div class="case-insight">           
+            <p>
+              When brand logos were blue, <span>74% of participants</span> classified the brand as trustworthy, compared to just 50% for red.
+            </p>
+          </div>
+          <p class="case-source">Su, Cui & Walsh, Journal of Marketing Theory and Practice, 2019</p>
+           <p>
+            The interface was intentionally designed to reduce emotional friction during onboarding.
+            Soft contrast, rounded components, and calmer visual hierarchy helped the product feel more approachable during the first interaction.
+           </p> 
+          <figure class="case-visual case-visual-hero case-design-system-visual">
+            <img src="assets/Design System.png" alt="Blue Guardian design system overview" />
+          </figure>     
+          
+          <p>
+            Users consistently described the onboarding experience as approachable rather than clinical. This friction reduction served as a direct lever for 
+            early retention, transforming visual design into a product decision rather than just an aesthetic choice.
+          </p>  
+
+        </section>
+
+        <section id="outcome" class="case-section case-outcome">
+          <h2>The Outcome</h2>
+          <p>
+            Blue Guardian launched and reached 300+ users within weeks, with zero advertising spend. The product was later featured in Maclean's for its approach to AI-driven youth mental health support.
+          </p>
+
+          <div class="case-outcome-story" aria-label="Blue Guardian outcome story">
+            <a
+              class="case-outcome-feature"
+              href="https://macleans.ca/society/the-prospect-meet-the-22-year-old-ceo-using-ai-to-boost-kids-mental-health/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Read the Maclean's article about Blue Guardian"
+            >
+              <span class="case-outcome-feature-label">Press</span>
+              <h3>Meet the 22-year-old CEO using AI to boost kids' mental health</h3>
+              <p>Maclean's, 2024</p>
+              <span class="case-inline-link case-outcome-feature-cta">
+                Read article
+                <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                </svg>
+              </span>
+            </a>
+
+            <div class="case-outcome-stats" aria-label="Blue Guardian outcome metrics">
+              <div>
+                <strong>300+</strong>
+                <span>users engaged within weeks of launch</span>
+              </div>
+              <div>
+                <strong>0 - 1</strong>
+                <span> product, research, branding, and go-to-market</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="reflections" class="case-section case-reflections">
+          <h2>Reflections</h2>
+
+          <div class="case-reflection">
+            <div>
+              <h3>Trust comes before value</h3>
+              <p>
+                Users don’t experience value unless they stay long enough to find it. Blue Guardian reinforced that trust isn’t something layered onto a product after it’s built. It shapes whether users engage with the product in the first place.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-reflection">
+            <div>
+              <h3>Distribution shapes adoption</h3>
+              <p>
+                A product can’t create impact if users never encounter it. This project pushed me to think beyond features and consider where trust already existed, and how distribution could become part of the user experience itself.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-reflection">
+            <div>
+              <h3>Not every important decision is a feature</h3>
+              <p>
+                Some of the most consequential decisions weren’t new capabilities. They influenced discovery, onboarding, and trust. Working on Blue Guardian reminded me that product success is often shaped by the experience around the feature, not just the feature itself.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="case-footer" aria-label="Case study footer">
+          <a class="case-footer-link case-footer-link-prev" href="accenture.html">
+            <svg class="arrow-icon case-footer-arrow case-footer-arrow-left" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 12H6M12 6l-6 6 6 6" />
+            </svg>
+            <span>Wildlight</span>
+          </a>
+
+          <p class="case-footer-meta">
+            Last updated Jun 4 · Listening to
+            <a
+              class="case-footer-soundtrack"
+              href="https://open.spotify.com/search/Automatic%20%E5%AE%87%E5%A4%9A%E7%94%B0%E5%85%89"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="case-footer-soundtrack-title">Automatic by 宇多田光</span>
+            </a>
+            <svg class="case-footer-spotify" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="12" fill="#1DB954" />
+              <path d="M17.41 9.78a.95.95 0 0 1-1.31.31 9.14 9.14 0 0 0-8.23-.87.95.95 0 0 1-.65-1.79 11.03 11.03 0 0 1 9.95 1.05.95.95 0 0 1 .24 1.3Z" fill="#fff" />
+              <path d="M16.2 12.55a.79.79 0 0 1-1.09.27 7.67 7.67 0 0 0-6.6-.65.79.79 0 0 1-.51-1.49 9.24 9.24 0 0 1 8 .78.79.79 0 0 1 .2 1.09Z" fill="#fff" />
+              <path d="M15.14 15.05a.63.63 0 0 1-.87.22 6.06 6.06 0 0 0-4.9-.43.63.63 0 0 1-.38-1.21 7.32 7.32 0 0 1 5.94.53.63.63 0 0 1 .21.89Z" fill="#fff" />
+            </svg>
+          </p>
+
+          <a
+            class="case-footer-link case-footer-link-next"
+            href="nus-iss.html"
+          >
+            <span>NUS-ISS</span>
+            <svg class="arrow-icon case-footer-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js?v=20260530-bg5"></script>
+  </body>
+</html>
