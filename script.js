@@ -51,6 +51,15 @@ let caseNavObserver = null;
 let staticRouterInitialized = false;
 let revealObserver = null;
 let currentRouterPath = window.location.pathname;
+const pageCache = new Map();
+
+const absoluteUrl = (value, base = window.location.href) => {
+  try {
+    return new URL(value, base).href;
+  } catch {
+    return null;
+  }
+};
 
 const initCaseNav = () => {
   if (caseNavObserver) {
@@ -185,6 +194,10 @@ const getRouterLink = (event) => {
 };
 
 const loadHtml = async (url) => {
+  const cached = pageCache.get(url.href);
+  if (cached) return cached;
+
+  const requestPromise = (async () => {
   try {
     const response = await fetch(url.href, { credentials: "same-origin" });
     if (!response.ok) throw new Error(`Unable to load ${url.href}`);
@@ -206,6 +219,16 @@ const loadHtml = async (url) => {
       request.send();
     });
   }
+  })();
+
+  requestPromise.catch(() => {
+    if (pageCache.get(url.href) === requestPromise) {
+      pageCache.delete(url.href);
+    }
+  });
+
+  pageCache.set(url.href, requestPromise);
+  return requestPromise;
 };
 
 const scrollToHash = (hash) => {
@@ -245,10 +268,53 @@ const updateCurrentHistoryState = () => {
   );
 };
 
-const swapMainContent = async (url, { push = true, resetScroll = true, reveal = true, restoreScrollY = null } = {}) => {
+const preloadImage = (src) => {
+  if (!src) return Promise.resolve();
+
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => resolve();
+    image.onerror = () => resolve();
+    image.src = src;
+
+    if (image.complete) resolve();
+  });
+};
+
+const getCriticalImageUrls = (nextMain, baseUrl) => {
+  if (!nextMain) return [];
+
+  const imageSources = new Set();
+  const isAboutPage = nextMain.classList.contains("about-page");
+  const isIndexPage = nextMain.classList.contains("page-shell") && !nextMain.classList.contains("about-page") && !nextMain.classList.contains("case-page");
+
+  if (isAboutPage) {
+    nextMain.querySelectorAll(".about-photo, .blog-image-cover").forEach((image) => {
+      const src = absoluteUrl(image.getAttribute("src"), baseUrl.href);
+      if (src) imageSources.add(src);
+    });
+  } else if (isIndexPage) {
+    nextMain.querySelectorAll(".project-image-cover, .brand-logo").forEach((image) => {
+      const src = absoluteUrl(image.getAttribute("src"), baseUrl.href);
+      if (src) imageSources.add(src);
+    });
+  }
+
+  return Array.from(imageSources);
+};
+
+const warmPage = async (url) => {
   const html = await loadHtml(url);
   const nextDocument = new DOMParser().parseFromString(html, "text/html");
   const nextMain = nextDocument.querySelector("main");
+  const criticalImages = getCriticalImageUrls(nextMain, url);
+  await Promise.all(criticalImages.map(preloadImage));
+  return { nextDocument, nextMain };
+};
+
+const swapMainContent = async (url, { push = true, resetScroll = true, reveal = true, restoreScrollY = null } = {}) => {
+  const { nextDocument, nextMain } = await warmPage(url);
   const currentMain = document.querySelector("main");
 
   if (!nextMain || !currentMain) throw new Error("Missing main content");
@@ -310,10 +376,21 @@ const initStaticRouter = () => {
 
     event.preventDefault();
     updateCurrentHistoryState();
-    swapMainContent(url).catch(() => {
+    swapMainContent(url, { reveal: false }).catch(() => {
       console.warn(`Unable to load ${url.href} without a full page navigation.`);
+      window.location.href = url.href;
     });
   }, true);
+
+  const warmLink = (event) => {
+    const link = getRouterLink(event);
+    const url = getInternalHtmlUrl(link);
+    if (!url) return;
+    warmPage(url).catch(() => {});
+  };
+
+  document.addEventListener("pointerenter", warmLink, true);
+  document.addEventListener("focusin", warmLink, true);
 
   window.addEventListener("popstate", (event) => {
     const url = new URL(window.location.href);

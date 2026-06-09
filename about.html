@@ -15,6 +15,13 @@
       document.documentElement.classList.add("js");
     </script>
   <link rel="prefetch" href="index.html" />
+  <link rel="preload" as="image" href="assets/about-flowers.jpg" />
+  <link rel="preload" as="image" href="assets/blogs/01-cover-light.png" />
+  <link rel="preload" as="image" href="assets/blogs/02-cover-light.png" />
+  <link rel="preload" as="image" href="assets/blogs/03-cover-light.png" />
+  <link rel="preload" as="image" href="assets/blogs/01-cover-dark.png" />
+  <link rel="preload" as="image" href="assets/blogs/02-cover-dark.png" />
+  <link rel="preload" as="image" href="assets/blogs/03-cover-dark.png" />
   <link rel="stylesheet" href="styles.css?v=20260530-bg5" />
   </head>
   <body>
@@ -23,7 +30,7 @@
         <a href="index.html">Design</a>
         <a class="is-active" href="about.html">About</a>
         <a
-          href="https://drive.google.com/file/d/1mCudMeJQmmbRcCKPdz0D19S_bhuzZAIT/view?usp=sharing"
+          href="https://drive.google.com/file/d/1d93qt_9L9ObPDxQ4qf8VoMVpE3SVUkau/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >
@@ -80,6 +87,9 @@
           class="about-photo"
           src="assets/about-flowers.jpg"
           alt="Christal with flowers"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </section>
 
@@ -98,9 +108,9 @@
             rel="noreferrer"
           >
             <div class="blog-cover" aria-hidden="true">
-              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/01-cover-light.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/01-cover-light.png" alt="" loading="eager" fetchpriority="high" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/01-hover-light.png" alt="" />
-              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/01-cover-dark.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/01-cover-dark.png" alt="" loading="eager" fetchpriority="high" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/01-hover-dark.png" alt="" />
             </div>
             <h3>Semester in Singapore</h3>
@@ -114,9 +124,9 @@
             rel="noreferrer"
           >
             <div class="blog-cover" aria-hidden="true">
-              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/02-cover-light.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/02-cover-light.png" alt="" loading="eager" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/02-hover-light.png" alt="" />
-              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/02-cover-dark.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/02-cover-dark.png" alt="" loading="eager" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/02-hover-dark.png" alt="" />
             </div>
             <h3>The 3D Era</h3>
@@ -130,9 +140,9 @@
             rel="noreferrer"
           >
             <div class="blog-cover" aria-hidden="true">
-              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/03-cover-light.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/03-cover-light.png" alt="" loading="eager" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/03-hover-light.png" alt="" />
-              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/03-cover-dark.png" alt="" />
+              <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/03-cover-dark.png" alt="" loading="eager" decoding="async" />
               <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/03-hover-dark.png" alt="" />
             </div>
             <h3>The Unofficial Bio</h3>
@@ -141,6 +151,6 @@
         </div>
       </section>
     </main>
-  <script src="script.js?v=20260530-bg5"></script>
+  <script src="script.js?v=20260608-nav2"></script>
 </body>
 </html>
