@@ -156,33 +156,6 @@ const routeTemplateIds = {
 const now = () => performance.now();
 const prefersDarkMode = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-const logRouter = (...args) => {
-  console.log("[router]", ...args);
-};
-
-const watchShellStability = () => {
-  const sidebar = document.querySelector(".sidebar");
-  if (!sidebar) return;
-
-  logRouter("route animation targets sidebar", sidebar.classList.contains("route-transition-reveal"));
-
-  const watchAttributes = (target, label) => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type !== "attributes") return;
-        if (!["class", "style", "hidden"].includes(mutation.attributeName)) return;
-        logRouter(`${label} attribute changed`, mutation.attributeName, target.getAttribute(mutation.attributeName));
-      });
-    });
-
-    observer.observe(target, { attributes: true, attributeFilter: ["class", "style", "hidden"] });
-  };
-
-  watchAttributes(document.documentElement, "html");
-  watchAttributes(document.body, "body");
-  watchAttributes(sidebar, "sidebar");
-};
-
 const preloadImage = (src) => {
   if (!src) return Promise.resolve();
   return new Promise((resolve) => {
@@ -222,10 +195,13 @@ const decodeImage = (image) =>
 const getAboutPriorityImageSources = () => {
   const variant = prefersDarkMode() ? "dark" : "light";
   return [
-    absoluteUrl("assets/about-optimized/about-flowers.jpg"),
-    absoluteUrl(`assets/about-optimized/01-cover-${variant}.jpg`),
-    absoluteUrl(`assets/about-optimized/02-cover-${variant}.jpg`),
-    absoluteUrl(`assets/about-optimized/03-cover-${variant}.jpg`)
+    absoluteUrl("assets/about-flowers.jpg"),
+    absoluteUrl(`assets/blogs/01-cover-${variant}.png`),
+    absoluteUrl(`assets/blogs/02-cover-${variant}.png`),
+    absoluteUrl(`assets/blogs/03-cover-${variant}.png`),
+    absoluteUrl(`assets/blogs/01-hover-${variant}.png`),
+    absoluteUrl(`assets/blogs/02-hover-${variant}.png`),
+    absoluteUrl(`assets/blogs/03-hover-${variant}.png`)
   ].filter(Boolean);
 };
 
@@ -234,8 +210,8 @@ const warmAboutPriorityImages = () =>
 
 const getAboutVisibleImages = (root) => {
   const selector = prefersDarkMode()
-    ? ".about-photo, .blog-image-cover.blog-image-dark"
-    : ".about-photo, .blog-image-cover.blog-image-light";
+    ? ".blog-image-cover.blog-image-dark, .blog-image-hover.blog-image-dark"
+    : ".blog-image-cover.blog-image-light, .blog-image-hover.blog-image-light";
   return Array.from(root.querySelectorAll(selector));
 };
 
@@ -261,11 +237,7 @@ const preparePageMedia = async (root) => {
 };
 
 const startRouteProfile = (url) => {
-  activeRouteProfile = {
-    url: url.href,
-    clickReceived: now()
-  };
-  window.__lastRouteProfile = activeRouteProfile;
+  activeRouteProfile = { url: url.href, clickReceived: now() };
 };
 
 const markRouteProfile = (key) => {
@@ -274,23 +246,6 @@ const markRouteProfile = (key) => {
 };
 
 const finishRouteProfile = () => {
-  if (!activeRouteProfile) return;
-  const profile = activeRouteProfile;
-  const click = profile.clickReceived;
-  const result = {
-    url: profile.url,
-    clickReceived: 0,
-    routeStart: (profile.routeStart ?? click) - click,
-    fetchStart: (profile.fetchStart ?? click) - click,
-    fetchComplete: (profile.fetchComplete ?? click) - click,
-    htmlParseComplete: (profile.htmlParseComplete ?? click) - click,
-    contentSwapComplete: (profile.contentSwapComplete ?? click) - click,
-    interactionInitializationComplete: (profile.interactionInitializationComplete ?? click) - click,
-    revealStart: (profile.revealStart ?? click) - click,
-    revealEnd: (profile.revealEnd ?? click) - click
-  };
-  window.__lastRouteProfileResult = result;
-  console.table(result);
   activeRouteProfile = null;
 };
 
@@ -366,6 +321,7 @@ const initCaseComparisons = (root = getAppRoot()) => {
 
 const updateSidebarActiveState = (routeKey = currentRouterPath) => {
   const section = routeKey === "about" ? "about" : "design";
+  document.documentElement.dataset.route = section;
 
   document.querySelectorAll(".nav-links a").forEach((link) => {
     const routeInfo = getInternalRouteInfo(link);
@@ -380,7 +336,7 @@ const updateSidebarActiveState = (routeKey = currentRouterPath) => {
 const initPage = async ({ reveal = true, root = getAppRoot(), allowPrewarm = false } = {}) => {
   updateSidebarActiveState();
   bindInternalRouteLinks(root);
-  await preparePageMedia(root);
+  void preparePageMedia(root);
   if (reveal) {
     initPageReveal({ root });
   } else {
@@ -399,11 +355,6 @@ const initPage = async ({ reveal = true, root = getAppRoot(), allowPrewarm = fal
       warmAboutPriorityImages();
     }
   }
-};
-
-const assertSidebarPersistence = (before, after) => {
-  console.assert(before === after, "Sidebar was replaced. This is wrong.");
-  logRouter("sidebar identity before/after", before === after);
 };
 
 const getInternalRouteInfo = (link) => {
@@ -464,11 +415,8 @@ const handleInternalRouteClick = (event, link) => {
   const routeInfo = getInternalRouteInfo(link);
   if (!routeInfo) return;
 
-  logRouter("router intercepted route click");
-  logRouter("route name", routeInfo.routeKey);
   event.preventDefault();
   event.stopPropagation();
-  logRouter("preventDefault called", true);
 
   startRouteProfile(routeInfo.url);
   updateCurrentHistoryState();
@@ -722,9 +670,11 @@ const swapMainContent = async (
   { historyMode = "push", resetScroll = true, reveal = true, restoreScrollY = null, hash = "" } = {}
 ) => {
   markRouteProfile("routeStart");
+  if (!hash && !Number.isFinite(restoreScrollY) && resetScroll) {
+    instantScrollTo(0);
+  }
   const { nextDocument, nextMain } = await warmPage(routeKey);
   const currentMain = document.querySelector("#app");
-  const sidebarBefore = persistentSidebar || document.querySelector(".sidebar");
 
   if (!nextMain || !currentMain) throw new Error("Missing main content");
 
@@ -742,15 +692,10 @@ const swapMainContent = async (
   }
   currentRouterPath = routeKey;
 
-  await initPage({ reveal: false, root: currentMain, allowPrewarm: false });
+  await initPage({ reveal, root: currentMain, allowPrewarm: false });
   markRouteProfile("interactionInitializationComplete");
 
-  const sidebarAfter = document.querySelector(".sidebar");
-  assertSidebarPersistence(sidebarBefore, sidebarAfter);
-
-  if (reveal) {
-    playRouteContentReveal(currentMain);
-  } else {
+  if (!reveal) {
     markRouteProfile("revealStart");
     markRouteProfile("revealEnd");
     finishRouteProfile();
@@ -760,8 +705,6 @@ const swapMainContent = async (
     requestAnimationFrame(() => scrollToHash(hash));
   } else if (Number.isFinite(restoreScrollY)) {
     instantScrollTo(restoreScrollY);
-  } else if (resetScroll) {
-    window.scrollTo(0, 0);
   }
 };
 
@@ -851,39 +794,8 @@ const initStaticRouter = () => {
   });
 };
 
-if (document.readyState === "loading") {
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      const domReadyCount = Number(window.sessionStorage?.getItem("domcontentloaded-count") || "0") + 1;
-      window.sessionStorage?.setItem("domcontentloaded-count", String(domReadyCount));
-      logRouter("DOMContentLoaded fired", domReadyCount);
-      persistentSidebar = document.querySelector(".sidebar");
-      watchShellStability();
-      initStaticRouter();
-      void (async () => {
-        if (!enableAppShellRouter) {
-          await initPage({ root: getAppRoot(), allowPrewarm: false });
-        } else if (currentRouterPath !== "design") {
-          await swapMainContent(currentRouterPath, {
-            historyMode: "replace",
-            reveal: true,
-            resetScroll: true,
-            hash: window.location.hash || ""
-          });
-        } else {
-          await initPage({ root: getAppRoot(), allowPrewarm: true });
-        }
-      })();
-    },
-    { once: true }
-  );
-} else {
-  const domReadyCount = Number(window.sessionStorage?.getItem("domcontentloaded-count") || "0") + 1;
-  window.sessionStorage?.setItem("domcontentloaded-count", String(domReadyCount));
-  logRouter("DOMContentLoaded fired", domReadyCount);
+const boot = () => {
   persistentSidebar = document.querySelector(".sidebar");
-  watchShellStability();
   initStaticRouter();
   void (async () => {
     if (!enableAppShellRouter) {
@@ -899,4 +811,10 @@ if (document.readyState === "loading") {
       await initPage({ root: getAppRoot(), allowPrewarm: true });
     }
   })();
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot, { once: true });
+} else {
+  boot();
 }

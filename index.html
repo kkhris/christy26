@@ -16,6 +16,8 @@
     />
     <script>
       document.documentElement.classList.add("js");
+      document.documentElement.dataset.route =
+        new URLSearchParams(location.search).get("route") || "design";
     </script>
     <style>
       html,
@@ -30,12 +32,12 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="styles.css?v=20260530-bg5" />
+    <link rel="stylesheet" href="styles.css?v=20260610-bloghover3" />
   </head>
   <body>
     <aside class="sidebar" aria-label="Site navigation">
       <nav class="nav-links">
-        <a class="is-active" href="index.html">Design</a>
+        <a href="index.html">Design</a>
         <a href="index.html?route=about">About</a>
         <a
           href="https://drive.google.com/file/d/1d93qt_9L9ObPDxQ4qf8VoMVpE3SVUkau/view?usp=sharing"
@@ -76,7 +78,7 @@
       </header>
 
       <section class="project-grid" aria-label="Selected design projects">
-        <article class="project-card reveal">
+        <article class="project-card">
           <a
             class="project-media concept-media concept-ibm"
             href="https://www.ibm.com/products/decision-intelligence" target="_blank"
@@ -99,7 +101,7 @@
           <p>Turn business policies into AI-authored decisions.</p>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card">
           <a
             class="project-media concept-media concept-accenture-artifact"
             href="index.html?route=accenture"
@@ -160,7 +162,7 @@
           <p>AI restoration engine for ecological planning.</p>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card">
           <a
             class="project-media neutral-product-media neutral-product-b2b"
             href="index.html?route=blue-guardian"
@@ -170,31 +172,39 @@
               class="project-image project-image-cover"
               src="assets/blue-guardian-cover-light.png"
               alt="Blue Guardian product interface on desktop"
+              loading="eager"
+              decoding="async"
             />
             <img
               class="project-image project-image-cover project-image-dark"
               src="assets/blue-guardian-cover-dark.png"
               alt=""
               aria-hidden="true"
+              loading="eager"
+              decoding="async"
             />
             <img
               class="project-image project-image-hover"
               src="assets/blue-guardian-hover-light.png"
               alt=""
               aria-hidden="true"
+              loading="eager"
+              decoding="async"
             />
             <img
               class="project-image project-image-hover project-image-hover-dark"
               src="assets/blue-guardian-hover-dark.png"
               alt=""
               aria-hidden="true"
+              loading="eager"
+              decoding="async"
             />
           </a>
           <h2>Blue Guardian, Generative AI Agent</h2>
           <p>Mental health and wellness support for youth.</p>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card">
           <a
             class="project-media concept-media concept-nus"
             href="index.html?route=nus-iss"
@@ -245,7 +255,7 @@
             </header>
       
             <section class="project-grid" aria-label="Selected design projects">
-              <article class="project-card reveal">
+              <article class="project-card">
                 <a
                   class="project-media concept-media concept-ibm"
                   href="https://www.ibm.com/products/decision-intelligence" target="_blank"
@@ -268,7 +278,7 @@
                 <p>Turn business policies into AI-authored decisions.</p>
               </article>
       
-              <article class="project-card reveal">
+              <article class="project-card">
                 <a
                   class="project-media concept-media concept-accenture-artifact"
                   href="index.html?route=accenture"
@@ -329,7 +339,7 @@
                 <p>AI restoration engine for ecological planning.</p>
               </article>
       
-              <article class="project-card reveal">
+              <article class="project-card">
                 <a
                   class="project-media neutral-product-media neutral-product-b2b"
                   href="index.html?route=blue-guardian"
@@ -339,31 +349,39 @@
                     class="project-image project-image-cover"
                     src="assets/blue-guardian-cover-light.png"
                     alt="Blue Guardian product interface on desktop"
+                    loading="eager"
+                    decoding="async"
                   />
                   <img
                     class="project-image project-image-cover project-image-dark"
                     src="assets/blue-guardian-cover-dark.png"
                     alt=""
                     aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
                   />
                   <img
                     class="project-image project-image-hover"
                     src="assets/blue-guardian-hover-light.png"
                     alt=""
                     aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
                   />
                   <img
                     class="project-image project-image-hover project-image-hover-dark"
                     src="assets/blue-guardian-hover-dark.png"
                     alt=""
                     aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
                   />
                 </a>
                 <h2>Blue Guardian, Generative AI Agent</h2>
                 <p>Mental health and wellness support for youth.</p>
               </article>
       
-              <article class="project-card reveal">
+              <article class="project-card">
                 <a
                   class="project-media concept-media concept-nus"
                   href="index.html?route=nus-iss"
@@ -883,12 +901,12 @@
               <section id="overview" class="case-section">
                 <div class="case-notice">
                   <p>
-                    Blue Guardian is now closed after two years of operation. The product and website are no longer active, but i had a great time building it and learned a lot throughout the process!
+                    Blue Guardian is now closed after two years of operation. The product and website are no longer active, but I had a great time building it and learned a lot throughout the process!
                   </p>
                 </div>
       
                 <p>
-                    In late 2023, I joined Blue Guardian as the sole founding designer to build a generative AI wellness platform for youth. Over an 8-month cycle, i owned the product's end-to-end user experience, designing the core conversational interface and executing a zero-budget growth strategy to acquire our initial users.
+                    In late 2023, I joined Blue Guardian as the sole founding designer to build a generative AI wellness platform for youth. Over an 8-month cycle, I owned the product's end-to-end user experience, designing the core conversational interface and executing a zero-budget growth strategy to acquire our initial users.
                 </p>
       
                 <figure class="case-video">
@@ -1248,6 +1266,7 @@
                 </p>
                 <p>
                   Working alongside 4 senior lecturers, I drove curriculum and experience design for 2,000+ working professionals across government, finance, and enterprise, with outputs adopted into all subsequent programme runs.
+                </p>
                 <figure class="case-video">
                   <iframe
                     src="https://www.youtube.com/embed/y2ZfXlgEaJc?autoplay=1&mute=1&loop=1&playlist=y2ZfXlgEaJc&controls=0&playsinline=1&rel=0&modestbranding=1"
@@ -1456,6 +1475,7 @@
                 </p>
                 <p>
                   We consolidated survey responses into a single dashboard that surfaced trends across cohorts, making it easier for instructors and programme staff to identify patterns that were previously buried across hundreds of individual survey responses.
+                </p>
                 <figure class="case-outcome-card case-example-dashboard">
                   <img src="assets/nus-dashboard-april-detail.png" alt="Dashboard showing NUS learner feedback trends across programmes, years, and satisfaction metrics" loading="lazy" decoding="async" />
                 </figure>
@@ -1576,6 +1596,6 @@
 
 
 
-    <script src="script.js?v=20260609-shell6"></script>
+    <script src="script.js?v=20260610-hoverprep1"></script>
   </body>
 </html>

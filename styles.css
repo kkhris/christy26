@@ -2,7 +2,6 @@
   color-scheme: light dark;
   --bg: #ffffff;
   --text: #333333;
-  --muted: #333333;
   --line: rgba(0, 0, 0, 0.08);
   --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   --card-shadow-hover: 0 2px 10px rgba(0, 0, 0, 0.12);
@@ -13,7 +12,6 @@
   :root {
     --bg: #1c1c1c;
     --text: #ededed;
-    --muted: #ededed;
     --line: rgba(255, 255, 255, 0.11);
     --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
     --card-shadow-hover: 0 2px 10px rgba(0, 0, 0, 0.12);
@@ -65,8 +63,6 @@ img {
   isolation: isolate;
   contain: layout paint style;
   backface-visibility: hidden;
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 .nav-links {
@@ -87,6 +83,13 @@ img {
   font-weight: 600;
   letter-spacing: -0.01em;
   transition: font-weight 160ms ease;
+}
+
+/* Pre-paint active state driven by data-route set in <head> — fires before JS runs.
+   :not(.is-active) ensures these rules step aside once JS adds the class. */
+html[data-route="about"] .nav-links a[href="index.html?route=about"]:not(.is-active),
+html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
+  font-weight: 700;
 }
 
 .nav-links a:hover,
@@ -125,7 +128,10 @@ img {
   padding-bottom: 7px;
 }
 
-.contact a::after {
+.contact a::after,
+.case-inline-link::after,
+.case-video-link::after,
+.case-footer-link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -136,6 +142,14 @@ img {
   background: currentColor;
   opacity: 0;
   transition: opacity 160ms ease;
+}
+
+.case-video-link::after {
+  transition-duration: 140ms;
+}
+
+.case-footer-link::after {
+  bottom: -4px;
 }
 
 .contact a:hover::after {
@@ -240,7 +254,7 @@ img {
 }
 
 .project-image-hover {
-  opacity: 1;
+  opacity: 0;
   z-index: 1;
 }
 
@@ -311,10 +325,12 @@ img {
 
 .concept-layer-cover {
   opacity: 1;
+  z-index: 1;
 }
 
 .concept-layer-hover {
   opacity: 0;
+  z-index: 2;
 }
 
 .concept-media:hover .concept-layer-cover,
@@ -1247,7 +1263,6 @@ img {
   .neutral-product-b2b .project-image-dark,
   .neutral-product-b2b .project-image-hover-dark {
     display: block;
-    opacity: 1;
     filter: none;
     inset: -3px;
     width: calc(100% + 6px);
@@ -1255,16 +1270,23 @@ img {
   }
 
   .neutral-product-b2b .project-image-dark {
+    opacity: 1;
     z-index: 2;
   }
 
   .neutral-product-b2b .project-image-hover-dark {
+    opacity: 0;
     z-index: 1;
   }
 
   .neutral-product-b2b:hover .project-image-dark,
   .neutral-product-b2b:focus-visible .project-image-dark {
     opacity: 0;
+  }
+
+  .neutral-product-b2b:hover .project-image-hover-dark,
+  .neutral-product-b2b:focus-visible .project-image-hover-dark {
+    opacity: 1;
   }
 
   .neutral-product-media .thrifty-logo-color-overlay {
@@ -1425,7 +1447,7 @@ img {
 
 .project-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 16px;
   line-height: 1.4;
   font-weight: 500;
@@ -1439,12 +1461,6 @@ img {
 .case-inline-link:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.75);
   outline-offset: 4px;
-}
-
-.reveal,
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1515,12 +1531,11 @@ img {
   }
 }
 
-html.js .about-page:not([data-media-ready="true"]) .about-photo,
-html.js .about-page:not([data-media-ready="true"]) .blog-image-cover {
+html.js .about-page:not([data-media-ready="true"]) .blog-image-cover,
+html.js .about-page:not([data-media-ready="true"]) .blog-image-hover {
   opacity: 0;
 }
 
-html.js .about-page[data-media-ready="true"] .about-photo,
 html.js .about-page[data-media-ready="true"] .blog-image-cover {
   opacity: 1;
 }
@@ -1633,15 +1648,19 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   object-fit: cover;
   object-position: center;
   opacity: 1;
-  transition: opacity 180ms ease;
+  transition: opacity 290ms cubic-bezier(0.27, 0.5, 1, 1);
+  will-change: opacity;
 }
 
-.blog-image-cover {
+.about-page .blog-image-cover {
   z-index: 2;
+  opacity: 1;
 }
 
-.blog-image-hover {
+.about-page .blog-image-hover {
   z-index: 1;
+  opacity: 1;
+  transition: none;
 }
 
 .blog-image-dark {
@@ -1653,9 +1672,18 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-.blog-card:hover .blog-image-cover,
-.blog-card:focus-visible .blog-image-cover {
+html.js .about-page[data-media-ready="true"] .blog-card:hover .blog-image-cover,
+html.js .about-page[data-media-ready="true"] .blog-card:focus-visible .blog-image-cover,
+html:not(.js) .about-page .blog-card:hover .blog-image-cover,
+html:not(.js) .about-page .blog-card:focus-visible .blog-image-cover {
   opacity: 0;
+}
+
+html.js .about-page[data-media-ready="true"] .blog-card:hover .blog-image-hover,
+html.js .about-page[data-media-ready="true"] .blog-card:focus-visible .blog-image-hover,
+html:not(.js) .about-page .blog-card:hover .blog-image-hover,
+html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
+  opacity: 1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1667,17 +1695,25 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
     display: block;
   }
 
-  .blog-image-cover.blog-image-dark {
+  .about-page .blog-image-cover.blog-image-dark {
     z-index: 2;
+    opacity: 1;
   }
 
-  .blog-image-hover.blog-image-dark {
+  .about-page .blog-image-hover.blog-image-dark {
     z-index: 1;
+    opacity: 1;
+    transition: none;
   }
 
-  .blog-card:hover .blog-image-cover.blog-image-dark,
-  .blog-card:focus-visible .blog-image-cover.blog-image-dark {
+  html:not(.js) .about-page .blog-card:hover .blog-image-cover.blog-image-dark,
+  html:not(.js) .about-page .blog-card:focus-visible .blog-image-cover.blog-image-dark {
     opacity: 0;
+  }
+
+  html:not(.js) .about-page .blog-card:hover .blog-image-hover.blog-image-dark,
+  html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover.blog-image-dark {
+    opacity: 1;
   }
 }
 
@@ -1709,19 +1745,6 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   letter-spacing: inherit;
   padding-bottom: 3px;
   text-decoration: none;
-}
-
-.case-inline-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  border-radius: 999px;
-  background: currentColor;
-  opacity: 0;
-  transition: opacity 160ms ease;
 }
 
 .case-inline-link:hover::after,
@@ -1853,7 +1876,7 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   display: block;
   width: 158px;
   padding: 7px 9px 2px;
-  color: var(--muted);
+  color: var(--text);
   font-size: 12px;
   line-height: 1.2;
   font-weight: 400;
@@ -2019,19 +2042,6 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
 
 .case-video-link-flower {
   color: var(--wildlight-green);
-}
-
-.case-video-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  border-radius: 999px;
-  background: currentColor;
-  opacity: 0;
-  transition: opacity 140ms ease;
 }
 
 .case-video-link:hover::after,
@@ -2562,7 +2572,7 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   margin: 18px 0 24px;
   padding-top: 16px;
   border-top: 1px solid var(--wildlight-card-border);
-  color: var(--muted);
+  color: var(--text);
   font-size: 12px;
   line-height: 1.4;
   font-weight: 400;
@@ -2809,7 +2819,7 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
 
 .case-example-note {
   margin: 14px 0 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 12px;
   line-height: 1.4;
   font-weight: 400;
@@ -2992,19 +3002,6 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   padding-bottom: 0;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.case-footer-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 3px;
-  border-radius: 999px;
-  background: currentColor;
-  opacity: 0;
-  transition: opacity 160ms ease;
 }
 
 .case-footer-link-prev::after {
