@@ -84,17 +84,20 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
     if (prefersReducedMotion) return 0;
 
     if (section.classList.contains("intro") || section.classList.contains("case-intro-group")) return 0;
-    if (isCasePage && section.classList.contains("case-nav")) return 120;
-    return Math.min(index * 96, 288);
+    // 200ms base matches the Framer reference's 0.3s delay (slightly tighter for SPA feel).
+    // Small per-index stagger (40ms, capped at 80ms) keeps sections from feeling robotic
+    // when multiple enter together, without becoming a sequence animation.
+    const base = 200;
+    if (section.classList.contains("case-nav")) return base + 60;
+    return base + Math.min(index * 40, 80);
   };
 
   const getDuration = (section) => {
-    const cssDuration =
-      Number.parseFloat(getComputedStyle(section).getPropertyValue("--reveal-duration")) || 940;
-
-    if (prefersReducedMotion) return cssDuration;
-    if (isCasePage && section.classList.contains("case-nav")) return 920;
-    return 940;
+    if (prefersReducedMotion) {
+      return Number.parseFloat(getComputedStyle(section).getPropertyValue("--reveal-duration")) || 650;
+    }
+    if (isCasePage && section.classList.contains("case-nav")) return 700;
+    return 750;
   };
 
   sections.forEach((section, index) => {
@@ -120,6 +123,9 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
     revealObserver = null;
   }
 
+  // Whole-page entrance: all sections fire at once on page enter (not scroll-triggered).
+  // The CSS --reveal-delay carries a 200ms base so the entrance feels deliberate,
+  // matching the Framer reference's 0.3s delay setting.
   const revealKickDelay = 18;
   requestAnimationFrame(() => showRevealSections(root));
   window.setTimeout(() => showRevealSections(root), revealKickDelay);
@@ -616,15 +622,29 @@ const setCaseNavActiveByHash = (hash) => {
   });
 };
 
+// At desktop (>809px) .page-shell is the scroll container; at mobile the document scrolls.
+const getScrollContainer = () =>
+  window.innerWidth > 809 ? document.getElementById("app") : null;
+
 const instantScrollTo = (top) => {
-  window.scrollTo(0, top);
+  const container = getScrollContainer();
+  if (container) {
+    container.scrollTop = top;
+  } else {
+    window.scrollTo(0, top);
+  }
+};
+
+const getScrollTop = () => {
+  const container = getScrollContainer();
+  return container ? container.scrollTop : window.scrollY;
 };
 
 const updateCurrentHistoryState = () => {
   if (!window.history.replaceState) return;
   const currentState = window.history.state || {};
   window.history.replaceState(
-    { ...currentState, path: window.location.href, scrollY: window.scrollY },
+    { ...currentState, path: window.location.href, scrollY: getScrollTop() },
     "",
     window.location.href
   );
@@ -670,9 +690,6 @@ const swapMainContent = async (
   { historyMode = "push", resetScroll = true, reveal = true, restoreScrollY = null, hash = "" } = {}
 ) => {
   markRouteProfile("routeStart");
-  if (!hash && !Number.isFinite(restoreScrollY) && resetScroll) {
-    instantScrollTo(0);
-  }
   const { nextDocument, nextMain } = await warmPage(routeKey);
   const currentMain = document.querySelector("#app");
 
@@ -683,6 +700,13 @@ const swapMainContent = async (
   currentMain.innerHTML = nextMain.innerHTML;
   markRouteProfile("contentSwapComplete");
 
+  // Scroll reset is synchronous with the content swap — both land in the same paint frame.
+  // Moving it before `await warmPage` caused the old content to visibly snap to top
+  // before the swap, which felt like a broken transition from scrolled-down positions.
+  if (!hash && !Number.isFinite(restoreScrollY) && resetScroll) {
+    instantScrollTo(0);
+  }
+
   const historyUrl = buildShellUrl(routeKey, hash);
 
   if (historyMode === "push") {
@@ -691,6 +715,11 @@ const swapMainContent = async (
     window.history.replaceState({ path: historyUrl.href, routeKey, hash }, "", historyUrl.href);
   }
   currentRouterPath = routeKey;
+
+  // Update sidebar state synchronously before the reveal animation starts.
+  // Without this, the nav active-state change (font-weight transition) fires mid-animation,
+  // making the sidebar appear to blink as content fades in alongside a nav reflow.
+  updateSidebarActiveState();
 
   await initPage({ reveal, root: currentMain, allowPrewarm: false });
   markRouteProfile("interactionInitializationComplete");

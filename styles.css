@@ -24,12 +24,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
   background: var(--bg);
   color: var(--text);
   font-family: "Open Sans", Arial, sans-serif;
@@ -188,6 +188,27 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   isolation: isolate;
 }
 
+/* Desktop: prevent document scroll so fixed sidebar is immune to Safari elastic scroll.
+   .page-shell becomes the sole scroll container. */
+@media (min-width: 810px) {
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .page-shell {
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    /* Extend to viewport right edge so the scrollbar sits at the browser edge,
+       not inset by --page-right. Padding carries the right indent instead. */
+    width: calc(100vw - var(--page-left));
+    padding-right: var(--page-right);
+    box-sizing: border-box;
+    max-width: none;
+  }
+}
+
 
 
 .intro {
@@ -254,8 +275,9 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
 }
 
 .project-image-hover {
-  opacity: 0;
+  opacity: 1;  /* always visible underneath cover; cover fades out to reveal it */
   z-index: 1;
+  transition: none;
 }
 
 .project-image-dark,
@@ -263,11 +285,7 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   display: none;
 }
 
-.project-media:hover .project-image-hover,
-.project-media:focus-visible .project-image-hover {
-  opacity: 1;
-}
-
+/* Only the cover fades out — no simultaneous cross-fade that would bleed background */
 .project-media:hover .project-image-cover,
 .project-media:focus-visible .project-image-cover {
   opacity: 0;
@@ -872,6 +890,7 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   top: 50%;
   transform: translate(-50%, -50%);
   width: min(45%, 380px);
+  aspect-ratio: 600 / 166;
   z-index: 6;
 }
 
@@ -881,6 +900,7 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   top: 66%;
   transform: translateX(-50%);
   width: min(18%, 150px);
+  aspect-ratio: 300 / 71;
   max-height: 9%;
   opacity: 0.9;
   z-index: 5;
@@ -1472,46 +1492,46 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   html.js .case-nav,
   html.js .case-section {
     opacity: 0;
-    transform: translate3d(0, var(--reveal-y, 64px), 0);
+    transform: translate3d(0, var(--reveal-y, 120px), 0);
     transition:
-      opacity var(--reveal-duration, 940ms) cubic-bezier(0.22, 1, 0.36, 1),
-      transform var(--reveal-duration, 940ms) cubic-bezier(0.22, 1, 0.36, 1);
+      opacity var(--reveal-duration, 750ms) cubic-bezier(0.22, 1, 0.36, 1),
+      transform var(--reveal-duration, 750ms) cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--reveal-delay, 0ms);
   }
 
   html.js .intro {
-    --reveal-y: 72px;
-    --reveal-duration: 940ms;
+    --reveal-y: 180px;
+    --reveal-duration: 750ms;
   }
 
   html.js .case-intro-group {
-    --reveal-y: 72px;
-    --reveal-duration: 940ms;
+    --reveal-y: 180px;
+    --reveal-duration: 750ms;
   }
 
   html.js .project-grid {
-    --reveal-y: 72px;
-    --reveal-duration: 940ms;
+    --reveal-y: 120px;
+    --reveal-duration: 750ms;
   }
 
   html.js .about-story {
-    --reveal-y: 64px;
-    --reveal-duration: 940ms;
+    --reveal-y: 120px;
+    --reveal-duration: 750ms;
   }
 
   html.js .blog-section {
-    --reveal-y: 64px;
-    --reveal-duration: 940ms;
+    --reveal-y: 120px;
+    --reveal-duration: 750ms;
   }
 
   html.js .case-section {
-    --reveal-y: 64px;
-    --reveal-duration: 940ms;
+    --reveal-y: 120px;
+    --reveal-duration: 750ms;
   }
 
   html.js .case-nav {
     --reveal-y: 40px;
-    --reveal-duration: 940ms;
+    --reveal-duration: 700ms;
     transform: translate3d(0, var(--reveal-y), 0) translateY(-50%);
   }
 
