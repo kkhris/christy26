@@ -131,45 +131,9 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
 
 const playRouteContentReveal = (root = getAppRoot()) => {
   markRouteProfile("revealStart");
-
-  if (!root) {
-    markRouteProfile("revealEnd");
-    finishRouteProfile();
-    return;
-  }
-
-  root.classList.remove("route-transition-reveal");
-  void root.offsetWidth;
-  root.classList.add("route-transition-reveal");
-
-  const handleAnimationEnd = () => {
-    root.classList.remove("route-transition-reveal");
-    markRouteProfile("revealEnd");
-    finishRouteProfile();
-  };
-
-  root.addEventListener("animationend", handleAnimationEnd, { once: true });
+  markRouteProfile("revealEnd");
+  finishRouteProfile();
 };
-
-const playRouteContentExit = (root = getAppRoot()) =>
-  new Promise((resolve) => {
-    if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      resolve();
-      return;
-    }
-
-    root.classList.remove("route-transition-reveal");
-    root.classList.remove("route-transition-exit");
-    void root.offsetWidth;
-    root.classList.add("route-transition-exit");
-
-    const finish = () => {
-      root.classList.remove("route-transition-exit");
-      resolve();
-    };
-
-    root.addEventListener("animationend", finish, { once: true });
-  });
 
 let caseNavObserver = null;
 let staticRouterInitialized = false;
@@ -194,6 +158,29 @@ const prefersDarkMode = () => window.matchMedia("(prefers-color-scheme: dark)").
 
 const logRouter = (...args) => {
   console.log("[router]", ...args);
+};
+
+const watchShellStability = () => {
+  const sidebar = document.querySelector(".sidebar");
+  if (!sidebar) return;
+
+  logRouter("route animation targets sidebar", sidebar.classList.contains("route-transition-reveal"));
+
+  const watchAttributes = (target, label) => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type !== "attributes") return;
+        if (!["class", "style", "hidden"].includes(mutation.attributeName)) return;
+        logRouter(`${label} attribute changed`, mutation.attributeName, target.getAttribute(mutation.attributeName));
+      });
+    });
+
+    observer.observe(target, { attributes: true, attributeFilter: ["class", "style", "hidden"] });
+  };
+
+  watchAttributes(document.documentElement, "html");
+  watchAttributes(document.body, "body");
+  watchAttributes(sidebar, "sidebar");
 };
 
 const preloadImage = (src) => {
@@ -235,10 +222,10 @@ const decodeImage = (image) =>
 const getAboutPriorityImageSources = () => {
   const variant = prefersDarkMode() ? "dark" : "light";
   return [
-    absoluteUrl("assets/about-flowers.jpg"),
-    absoluteUrl(`assets/blogs/01-cover-${variant}.png`),
-    absoluteUrl(`assets/blogs/02-cover-${variant}.png`),
-    absoluteUrl(`assets/blogs/03-cover-${variant}.png`)
+    absoluteUrl("assets/about-optimized/about-flowers.jpg"),
+    absoluteUrl(`assets/about-optimized/01-cover-${variant}.jpg`),
+    absoluteUrl(`assets/about-optimized/02-cover-${variant}.jpg`),
+    absoluteUrl(`assets/about-optimized/03-cover-${variant}.jpg`)
   ].filter(Boolean);
 };
 
@@ -682,11 +669,7 @@ const setCaseNavActiveByHash = (hash) => {
 };
 
 const instantScrollTo = (top) => {
-  const root = document.documentElement;
-  const previousBehavior = root.style.scrollBehavior;
-  root.style.scrollBehavior = "auto";
   window.scrollTo(0, top);
-  root.style.scrollBehavior = previousBehavior;
 };
 
 const updateCurrentHistoryState = () => {
@@ -739,11 +722,8 @@ const swapMainContent = async (
   { historyMode = "push", resetScroll = true, reveal = true, restoreScrollY = null, hash = "" } = {}
 ) => {
   markRouteProfile("routeStart");
-  const currentMain = document.querySelector("#app");
-  if (reveal) {
-    await playRouteContentExit(currentMain);
-  }
   const { nextDocument, nextMain } = await warmPage(routeKey);
+  const currentMain = document.querySelector("#app");
   const sidebarBefore = persistentSidebar || document.querySelector(".sidebar");
 
   if (!nextMain || !currentMain) throw new Error("Missing main content");
@@ -879,6 +859,7 @@ if (document.readyState === "loading") {
       window.sessionStorage?.setItem("domcontentloaded-count", String(domReadyCount));
       logRouter("DOMContentLoaded fired", domReadyCount);
       persistentSidebar = document.querySelector(".sidebar");
+      watchShellStability();
       initStaticRouter();
       void (async () => {
         if (!enableAppShellRouter) {
@@ -902,6 +883,7 @@ if (document.readyState === "loading") {
   window.sessionStorage?.setItem("domcontentloaded-count", String(domReadyCount));
   logRouter("DOMContentLoaded fired", domReadyCount);
   persistentSidebar = document.querySelector(".sidebar");
+  watchShellStability();
   initStaticRouter();
   void (async () => {
     if (!enableAppShellRouter) {
