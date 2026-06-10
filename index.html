@@ -30,14 +30,13 @@
         }
       }
     </style>
-    <link rel="prefetch" href="about.html" />
     <link rel="stylesheet" href="styles.css?v=20260530-bg5" />
   </head>
   <body>
     <aside class="sidebar" aria-label="Site navigation">
       <nav class="nav-links">
         <a class="is-active" href="index.html">Design</a>
-        <a href="about.html">About</a>
+        <a href="index.html?route=about">About</a>
         <a
           href="https://drive.google.com/file/d/1d93qt_9L9ObPDxQ4qf8VoMVpE3SVUkau/view?usp=sharing"
           target="_blank"
@@ -70,7 +69,7 @@
       </div>
     </aside>
 
-    <main class="page-shell">
+    <main id="app" class="page-shell">
       <header class="intro reveal">
         <h1>Christal Lyu</h1>
         <p>Product Manager @IBM Data, AI & Automation</p>
@@ -103,7 +102,7 @@
         <article class="project-card reveal">
           <a
             class="project-media concept-media concept-accenture-artifact"
-            href="accenture.html"
+            href="index.html?route=accenture"
             aria-label="Open Wildlight AI at Accenture"
           >
             <div class="concept-layer concept-layer-cover accenture-reveal-base">
@@ -164,7 +163,7 @@
         <article class="project-card reveal">
           <a
             class="project-media neutral-product-media neutral-product-b2b"
-            href="blue-guardian.html"
+            href="index.html?route=blue-guardian"
             aria-label="Open Blue Guardian"
           >
             <img
@@ -198,7 +197,7 @@
         <article class="project-card reveal">
           <a
             class="project-media concept-media concept-nus"
-            href="nus-iss.html"
+            href="index.html?route=nus-iss"
             aria-label="Open Design and Research at NUS-ISS"
           >
             <div class="concept-layer concept-layer-cover">
@@ -238,6 +237,1345 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260530-bg5"></script>
+    <template id="route-design">
+      <main id="app" class="page-shell">
+            <header class="intro reveal">
+              <h1>Christal Lyu</h1>
+              <p>Product Manager @IBM Data, AI & Automation</p>
+            </header>
+      
+            <section class="project-grid" aria-label="Selected design projects">
+              <article class="project-card reveal">
+                <a
+                  class="project-media concept-media concept-ibm"
+                  href="https://www.ibm.com/products/decision-intelligence" target="_blank"
+                  aria-label="IBM project placeholder"
+                >
+                  <div class="concept-layer concept-layer-cover ibm-cover">
+                    <img class="brand-logo ibm-logo ibm-logo-blue" src="assets/ibm-logo-blue-rgb.png" alt="IBM" />
+                    <img class="brand-logo ibm-logo ibm-logo-light" src="assets/ibm-logo-white-rgb-crop.png" alt="" aria-hidden="true" />
+                  </div>
+                  <div class="concept-layer concept-layer-hover ibm-hover" aria-hidden="true">
+                    <img class="brand-logo ibm-logo ibm-logo-blue" src="assets/ibm-logo-blue-rgb.png" alt="" />
+                    <img class="brand-logo ibm-logo ibm-logo-light" src="assets/ibm-logo-white-rgb-crop.png" alt="" />
+                    <div class="ibm-watson-pill">watsonx.ai</div>
+                    <div class="ibm-artifact ibm-artifact-orbit">
+                      <i></i><i></i><i></i><i></i>
+                    </div>
+                  </div>
+                </a>
+                <h2>IBM, Decision Intelligence (in progress...)</h2>
+                <p>Turn business policies into AI-authored decisions.</p>
+              </article>
+      
+              <article class="project-card reveal">
+                <a
+                  class="project-media concept-media concept-accenture-artifact"
+                  href="index.html?route=accenture"
+                  aria-label="Open Wildlight AI at Accenture"
+                >
+                  <div class="concept-layer concept-layer-cover accenture-reveal-base">
+                    <img
+                      class="brand-logo accenture-reveal-logo"
+                      src="assets/accenture-logo.svg"
+                      alt="Accenture"
+                    />
+                    <img
+                      class="brand-logo wildlight-support-logo"
+                      src="assets/wildlight-logo.svg"
+                      alt="Wildlight"
+                    />
+                    <img
+                      class="brand-logo wildlight-support-logo wildlight-support-logo-light"
+                      src="assets/wildlight-logo-light-crop.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div class="concept-layer concept-layer-hover accenture-reveal-details" aria-hidden="true">
+                    <img
+                      class="wildlight-component wildlight-component-heading"
+                      src="assets/wildlight-ai-heading.svg"
+                      alt=""
+                    />
+                    <img
+                      class="wildlight-component wildlight-component-impact"
+                      src="assets/wildlight-impact-cards.svg"
+                      alt=""
+                    />
+                    <img
+                      class="wildlight-component wildlight-component-prep"
+                      src="assets/wildlight-prep-complete-large.svg"
+                      alt=""
+                    />
+                    <img
+                      class="wildlight-component wildlight-component-chip wildlight-component-chip-grow"
+                      src="assets/wildlight-grow-food.svg"
+                      alt=""
+                    />
+                    <img
+                      class="wildlight-component wildlight-component-chip wildlight-component-chip-sun"
+                      src="assets/wildlight-hover-state.svg"
+                      alt=""
+                    />
+                    <img
+                      class="wildlight-component wildlight-component-chip wildlight-component-chip-sandy"
+                      src="assets/wildlight-sandy.svg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+                <h2>Accenture, Wildlight AI</h2>
+                <p>AI restoration engine for ecological planning.</p>
+              </article>
+      
+              <article class="project-card reveal">
+                <a
+                  class="project-media neutral-product-media neutral-product-b2b"
+                  href="index.html?route=blue-guardian"
+                  aria-label="Open Blue Guardian"
+                >
+                  <img
+                    class="project-image project-image-cover"
+                    src="assets/blue-guardian-cover-light.png"
+                    alt="Blue Guardian product interface on desktop"
+                  />
+                  <img
+                    class="project-image project-image-cover project-image-dark"
+                    src="assets/blue-guardian-cover-dark.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="project-image project-image-hover"
+                    src="assets/blue-guardian-hover-light.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="project-image project-image-hover project-image-hover-dark"
+                    src="assets/blue-guardian-hover-dark.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </a>
+                <h2>Blue Guardian, Generative AI Agent</h2>
+                <p>Mental health and wellness support for youth.</p>
+              </article>
+      
+              <article class="project-card reveal">
+                <a
+                  class="project-media concept-media concept-nus"
+                  href="index.html?route=nus-iss"
+                  aria-label="Open Design and Research at NUS-ISS"
+                >
+                  <div class="concept-layer concept-layer-cover">
+                    <img
+                      class="brand-logo brand-logo-nus brand-logo-nus-single"
+                      src="assets/nus-logo.svg"
+                      alt="NUS"
+                    />
+                    <img
+                      class="brand-logo brand-logo-nus brand-logo-nus-single brand-logo-nus-light"
+                      src="assets/nus-logo-light.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div class="concept-layer concept-layer-hover" aria-hidden="true">
+                    <div class="nus-research-card nus-research-card-chart">
+                      <svg viewBox="0 0 160 92" aria-hidden="true">
+                        <path class="nus-chart-grid" d="M10 20H150M10 42H150M10 64H150" />
+                        <path class="nus-chart-line-a" d="M14 68C32 54 44 58 60 43S93 31 109 39 132 50 148 28" />
+                        <path class="nus-chart-line-b" d="M14 54C31 47 43 36 61 39S90 56 107 48 130 31 148 36" />
+                      </svg>
+                    </div>
+                    <div class="nus-research-card nus-research-card-notes">
+                      <strong></strong>
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="nus-research-card nus-research-card-cluster">
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                  </div>
+                </a>
+                <h2>NUS, Blended Learning Programmes</h2>
+                <p>Optimizing professional training for global learners.</p>
+              </article>
+      
+            </section>
+          </main>
+    </template>
+
+    <template id="route-about">
+      <main id="app" class="page-shell about-page">
+            <header class="intro">
+              <h1>Hi! I'm Christalッ</h1>
+              <p>From pixels to people, I build products with innovation and heart.</p>
+            </header>
+      
+            <section class="about-story" aria-label="About Christal">
+              <div class="about-copy">
+                <p>
+                  I think good products start with paying attention — to people, to context, and to the little things.
+                </p>
+                <p>
+                  When things feel unclear, I slow down, ask questions, and help bring some order to the
+                  chaos. I like to map out the logic before jumping to conclusions, which helps me spot what
+                  users need and catch gaps the team might miss.
+                </p>
+                <p>
+                  When I'm not building products, I'm dancing in empty gyms, tripping over tennis balls, picking
+                  up golf, or filming vlogs I rarely edit. I'm always chasing new hobbies, sometimes
+                  successfully, sometimes chaotically, but always with curiosity.
+                </p>
+              </div>
+              <img
+                class="about-photo"
+                src="assets/about-flowers.jpg"
+                alt="Christal with flowers"
+                width="1440"
+                height="960"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </section>
+      
+            <section class="blog-section" aria-labelledby="blogs-title">
+              <h2 id="blogs-title">My Blogs</h2>
+              <p>
+                Outside of work, I share thoughts on the things I build, life, and whatever else I am up to. You'll find some
+                of them here!
+              </p>
+      
+              <div class="blog-grid">
+                <a
+                  class="blog-card"
+                  href="https://sage-rook-c0d.notion.site/Life-in-Singapore-be-like-dc92a1dba36d45399cfd8741c4ea8a07"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div class="blog-cover" aria-hidden="true">
+                    <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/01-cover-light.png" alt="" width="900" height="900" loading="eager" fetchpriority="high" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/01-hover-light.png" alt="" loading="eager" fetchpriority="high" decoding="async" width="900" height="900" />
+                    <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/01-cover-dark.png" alt="" width="900" height="900" loading="eager" fetchpriority="high" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/01-hover-dark.png" alt="" loading="eager" fetchpriority="high" decoding="async" width="900" height="900" />
+                  </div>
+                  <h3>Semester in Singapore</h3>
+                  <p>Heat, humidity, and lots of chicken rice.</p>
+                </a>
+      
+                <a
+                  class="blog-card"
+                  href="https://sage-rook-c0d.notion.site/Life-as-a-3D-Modelling-Beginner-34fac252ce46467483c644663921f222"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div class="blog-cover" aria-hidden="true">
+                    <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/02-cover-light.png" alt="" width="900" height="900" loading="eager" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/02-hover-light.png" alt="" loading="eager" decoding="async" width="900" height="900" />
+                    <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/02-cover-dark.png" alt="" width="900" height="900" loading="eager" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/02-hover-dark.png" alt="" loading="eager" decoding="async" width="900" height="900" />
+                  </div>
+                  <h3>The 3D Era</h3>
+                  <p>My messy attempt at learning 3D modeling.</p>
+                </a>
+      
+                <a
+                  class="blog-card"
+                  href="https://sage-rook-c0d.notion.site/a-little-bit-more-about-me-272ca89af24680f0a88bf8d910410048"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div class="blog-cover" aria-hidden="true">
+                    <img class="blog-image blog-image-cover blog-image-light" src="assets/blogs/03-cover-light.png" alt="" width="900" height="900" loading="eager" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-light" src="assets/blogs/03-hover-light.png" alt="" loading="eager" decoding="async" width="900" height="900" />
+                    <img class="blog-image blog-image-cover blog-image-dark" src="assets/blogs/03-cover-dark.png" alt="" width="900" height="900" loading="eager" decoding="async" />
+                    <img class="blog-image blog-image-hover blog-image-dark" src="assets/blogs/03-hover-dark.png" alt="" loading="eager" decoding="async" width="900" height="900" />
+                  </div>
+                  <h3>The Unofficial Bio</h3>
+                  <p>Things that didn't make it to my resume.</p>
+                </a>
+              </div>
+            </section>
+          </main>
+    </template>
+
+    <template id="route-accenture">
+      <main id="app" class="page-shell case-page">
+            <div class="case-intro-group">
+              <header class="intro case-hero">
+                <h1>Accenture, Wildlight AI</h1>
+                <p>
+                  The RAG-powered AI restoration engine for ecological planning.
+                </p>
+              </header>
+      
+              <dl class="case-meta" aria-label="Project metadata">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Product Manager</dd>
+                </div>
+                <div>
+                  <dt>Team</dt>
+                  <dd>3 Designers, 3 Developers, 1 Product Manager</dd>
+                </div>
+                <div>
+                  <dt>Timeline</dt>
+                  <dd>Jan - April 2026</dd>
+                </div>
+              </dl>
+            </div>
+      
+            <nav class="case-nav" aria-label="Case study sections">
+              <a href="#overview">Overview</a>
+              <a href="#problems">Problem</a>
+              <a class="case-nav-child" href="#decision-01"><span class="case-nav-index">01</span><span>Scope Reset</span></a>
+              <a class="case-nav-child" href="#decision-02"><span class="case-nav-index">02</span><span>AI Pivot</span></a>
+              <a class="case-nav-child" href="#decision-03"><span class="case-nav-index">03</span><span>Closed Loop</span></a>
+              <a href="#outcome">Outcome</a>
+              <a href="#reflections">Reflections</a>
+            </nav>
+      
+            <article class="case-study">
+              <section id="overview" class="case-section">
+                <p>
+                  In early 2026, our team inherited a half-built prototype and a brief that had more
+                  ambition than direction. Four months later, we shipped Wildlight — a RAG-powered AI web app that turns private yards 
+                  into connected pollinator habitats.
+                </p>
+                <p>
+                  Wildlight soft-launched in April 2026, and it was showcased at Web Summit Vancouver in May 2026. It's now live
+                  <a class="case-inline-link" href="https://wildlight-fe.onrender.com/" target="_blank" rel="noreferrer">here<svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" /></svg></a>.
+                </p>
+      
+                <figure class="case-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/Mx1fnk3RXLs?autoplay=1&mute=1&loop=1&playlist=Mx1fnk3RXLs&controls=0&playsinline=1&rel=0&modestbranding=1"
+                    title="Wildlight AI demo video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </figure>
+                <a
+                  class="case-video-link"
+                  href="https://www.youtube.com/watch?v=Mx1fnk3RXLs"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="case-video-link-flower" aria-hidden="true">✿</span>
+                  Watch full video
+                  <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                  </svg>
+                </a>
+              </section>
+      
+              <section id="problems" class="case-section">
+                <h2>Problem</h2>
+                <p>
+                  Many gardeners are actively trying to support local biodiversity by converting lawns, 
+                  seeking out native plants, and making space for pollinators. 
+                  The interest is growing. What isn't keeping up is accessible, tailored guidance.
+                </p>
+                <p>
+                  Native pollinator gardening requires site-specific expertise: which species suit your soil, 
+                  your sun, your region. Generic resources fail to answer these questions, and localized 
+                  ecological expertise is hard to access. As a result, most people give up before a single plant 
+                  goes in the ground.
+                </p>
+                <p>
+                  Accenture had already recognized this gap and started building toward it. When we picked it up, 
+                  we discovered more.
+                </p>          
+              </section>
+      
+              <section id="decision-01" class="case-section">
+                <p class="case-kicker">Decision 01</p>
+                <h2>The Scope Reset</h2>
+                <p>
+                  The inherited prototype had features spread across too many directions with no clear north star. Before touching a line of code, 
+                  I organized three parallel research tracks:
+                </p>
+                <div class="case-process">
+                  <div>
+                    <span>01</span>
+                    <h3>User Research</h3>
+                    <p>Interviewed gardeners across experience levels and synthesized recurring blockers.</p>
+                  </div>
+                  <div>
+                    <span>02</span>
+                    <h3>Technical Feasibility</h3>
+                    <p>Evaluated AI recommendation approaches and RAG as a grounding mechanism.</p>
+                  </div>
+                  <div>
+                    <span>03</span>
+                    <h3>Scope Prioritization</h3>
+                    <p> Prioritized the product requirements to define a MVP baseline for launch.</p>
+                  </div>
+                </div>
+                <p>
+                  The original brief asked for more than the timeline could support, so rather than under-delivering, we used our discovery findings to prioritize: 6 features in, 5 moved to a structured backlog, with 2 
+                  stretch goals to pursue if time allowed.
+                </p>
+                <div class="case-image-grid" aria-label="Usability testing cycle images">
+                  <figure class="case-image-slot">
+                    <img src="assets/wildlight-scope-reset-01.jpg" alt="Wildlight demo setup at Web Summit Vancouver" loading="lazy" decoding="async" />
+                  </figure>
+                  <figure class="case-image-slot">
+                    <img src="assets/wildlight-scope-reset-02.jpg" alt="Wildlight usability testing conversation" loading="lazy" decoding="async" />
+                  </figure>
+                </div>
+                <p>
+                  To validate these decisions during development, we built two usability testing cycles into the plan as decision gates. 
+                  With executive alignment secured on this structure, we moved forward with a shared definition of done.
+                </p>                     
+              </section>
+      
+              <section id="decision-02" class="case-section">
+                <p class="case-kicker">Decision 02</p>
+                <h2>The AI Pivot</h2>
+                <p>
+                  The original product direction placed AI after the intake: complete a static questionnaire about your yard, 
+                  then the AI generates a plan. It looked like a form, so users treated it like one.
+                </p>
+                <div class="case-stats">
+                  <div>
+                    <strong>13/20</strong>
+                    <span>couldn't answer a required question about their own garden</span>
+                  </div>
+                  <div>
+                    <strong>8/20</strong>
+                    <span>entered inaccurate answers just to keep moving forward</span>
+                  </div>
+                </div>
+                <p class="case-source">Usability testing, Feb 9, 2026 · n = 20</p>
+                <p>
+                  We brought this testing data to pitch a flow reversal, moving the AI to the very first interaction. Instead of a rigid questionnaire, the AI now acts as a conversational guide, 
+                  helping users assess their yard conditions accurately before generating any recommendations.
+                </p>
+                <div class="case-flow" aria-label="Product direction flow">
+                  <div class="case-flow-step case-flow-start">
+                    <span class="case-flow-badge">AI starts here</span>
+                    <strong>1</strong>
+                    <p>Site<br />Assessment</p>
+                  </div>
+                  <i></i>
+                  <div class="case-flow-step case-flow-new">
+                    <strong>2</strong>
+                    <p>AI<br />Exploration</p>
+                    <em>new</em>
+                  </div>
+                  <i class="case-flow-dashed"></i>
+                  <div class="case-flow-step case-flow-original">
+                    <span class="case-flow-badge case-flow-badge-muted">AI used to start here</span>
+                    <strong>3</strong>
+                    <p>Plan<br />Suggestions</p>
+                  </div>
+                  <i></i>
+                  <div class="case-flow-step case-flow-muted">
+                    <strong>4</strong>
+                    <p>Export<br />Plan</p>
+                  </div>
+                </div>
+                 <p class="case-flow-note">
+                  The new flow eliminated blind guessing and provided the RAG engine with the exact site data needed to succeed. 
+                  Users who engaged with it rated the interaction 4.5 out of 5 on naturalness.
+                </p>
+              </section>
+      
+              <section id="decision-03" class="case-section">
+                <p class="case-kicker">Decision 03</p>
+                <h2>The Closed Loop</h2>
+                <p>
+                  Generating a plan does not mean the questions stop. Users reached the final page facing unfamiliar plant names and unclear instructions, but most users never found it.
+                </p>
+                <div class="case-insight">
+                  <p>
+                    In usability testing, users who engaged with the AI chat rated it <span>most valuable,</span> but it ranked <span>last in discoverability</span> of any feature on the plan page.
+                  </p>
+                </div>
+                <p class="case-source">Usability testing, March 10, 2026 · n = 20</p>
+                <p>
+                  The data revealed a structural flaw. We built an AI-first interface, but put the AI chat on a separate page that users had to leave their plan to reach. The support layer and the product were not connected.
+                  Users were dropping off right when they needed help.
+                </p>
+                <figure class="case-comparison" data-case-comparison>
+                  <div class="case-comparison-toolbar" aria-label="Plan page comparison controls">
+                    <span></span>
+                    <div class="case-comparison-toggle" role="group" aria-label="Toggle plan page screenshot">
+                      <button type="button" class="is-active" data-comparison-state="after" aria-pressed="true">After</button>
+                      <button type="button" data-comparison-state="before" aria-pressed="false">Before</button>
+                    </div>
+                  </div>
+                  <div class="case-comparison-frame" data-current="after">
+                    <img
+                      class="case-comparison-image case-comparison-before"
+                      src="assets/wildlight-plan-before.png"
+                      alt="Original Wildlight plan page before the embedded chat panel"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      class="case-comparison-image case-comparison-after"
+                      src="assets/wildlight-plan-after.png"
+                      alt="Wildlight plan page with the embedded AI chat panel"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+                <p>
+                  After aligning the team on what that gap was costing us, we moved the chat into a persistent panel embedded in the plan. This closed the user loop and eliminated the visual blocker. Users now have a complete, uninterrupted journey from their first question to the final plan.
+                </p>
+              </section>
+      
+              <section id="outcome" class="case-section case-outcome">
+                <h2>The Outcome</h2>
+                <p>
+                  Our team successfully delivered 6 core features and 2 stretch features within a 4-month development cycle. 
+                  Following its initial rollout in April 2026, Wildlight was showcased at Web Summit Vancouver in May 2026. 
+                  You can interact with the live product
+                  <a class="case-inline-link" href="https://wildlight-fe.onrender.com/" target="_blank" rel="noreferrer">
+                    here
+                    <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                    </svg>
+                  </a>.
+                </p>
+      
+                <div class="case-outcome-images" aria-label="Web Summit Vancouver 2026 image placeholders">
+                  <figure class="case-outcome-card">
+                    <img src="assets/websumit01.jpg" alt="Wildlight booth at Web Summit Vancouver 2026" loading="lazy" decoding="async" />
+                  </figure>
+                  <figure class="case-outcome-card">
+                    <img src="assets/websumit02.jpg" alt="Wildlight team at Web Summit Vancouver 2026" loading="lazy" decoding="async" />
+                  </figure>
+                </div>
+      
+                <div class="case-outcome-stats" aria-label="Wildlight outcome metrics">
+                  <div>
+                    <strong>50%</strong>
+                    <span>faster task completion with conversational AI</span>
+                  </div>
+                  <div>
+                    <strong>30+</strong>
+                    <span>users tested across 2+ rounds of usability testing</span>
+                  </div>
+                  <div>
+                    <strong>0 - 1</strong>
+                    <span>product built and shipped in a 4-month development cycle</span>
+                  </div>
+                </div>
+              </section>
+      
+              <section id="reflections" class="case-section case-reflections">
+                <h2>Reflections</h2>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>In AI products, intake is the product.</h3>
+                    <p>
+                      A frictionless UI means nothing if it collects bad data. If users guess their way through questions they don't understand, the AI has nothing reliable to work with. The intake experience determines the quality of everything that comes after.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>A deadline is also a scope decision.</h3>
+                    <p>
+                      Saying yes to a timeline means saying no to scope early and explicitly. Without a shared definition of done, design optimizes for polish while engineering optimizes for completion. Hard boundaries are what keep a team building the same product.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Users won't stop to learn. They'll guess.</h3>
+                    <p>
+                      If a product requires knowledge users don't have, they won't pause to acquire it. They'll choose the most plausible answer and move on. Products need to meet users exactly where their knowledge ends, not where the domain expects it to begin.
+                    </p>
+                  </div>
+                </div>
+              </section>
+      
+              <div class="case-footer" aria-label="Case study footer">
+                <a
+                  class="case-footer-link case-footer-link-prev"
+                  href="https://www.ibm.com/products/decision-intelligence"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg class="arrow-icon case-footer-arrow case-footer-arrow-left" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12H6M12 6l-6 6 6 6" />
+                  </svg>
+                  <span>IBM</span>
+                </a>
+      
+                <p class="case-footer-meta">
+                  Last updated May 30 · Listening to
+                  <a
+                    class="case-footer-soundtrack"
+                    href="https://open.spotify.com/search/Jasmine%20DPR%20LIVE"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="case-footer-soundtrack-title">Jasmine by DPR LIVE</span>
+                  </a>
+                  <svg class="case-footer-spotify" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <path d="M17.41 9.78a.95.95 0 0 1-1.31.31 9.14 9.14 0 0 0-8.23-.87.95.95 0 0 1-.65-1.79 11.03 11.03 0 0 1 9.95 1.05.95.95 0 0 1 .24 1.3Z" fill="#fff" />
+                    <path d="M16.2 12.55a.79.79 0 0 1-1.09.27 7.67 7.67 0 0 0-6.6-.65.79.79 0 0 1-.51-1.49 9.24 9.24 0 0 1 8 .78.79.79 0 0 1 .2 1.09Z" fill="#fff" />
+                    <path d="M15.14 15.05a.63.63 0 0 1-.87.22 6.06 6.06 0 0 0-4.9-.43.63.63 0 0 1-.38-1.21 7.32 7.32 0 0 1 5.94.53.63.63 0 0 1 .21.89Z" fill="#fff" />
+                  </svg>
+                </p>
+      
+                <a class="case-footer-link case-footer-link-next" href="index.html?route=blue-guardian">
+                  <span>Blue Guardian</span>
+                  <svg class="arrow-icon case-footer-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12h14m-6-6 6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </main>
+    </template>
+
+    <template id="route-blue-guardian">
+      <main id="app" class="page-shell case-page blue-guardian-page">
+            <div class="case-intro-group">
+              <header class="intro case-hero">
+                <h1>Blue Guardian, Generative AI Agent</h1>
+                <p>The conversational AI platform for youth wellness support.</p>
+              </header>
+      
+              <dl class="case-meta" aria-label="Project metadata">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Product Designer</dd>
+                </div>
+                <div>
+                  <dt>Team</dt>
+                  <dd>1 Designer, 2 Developer, 1 Product Designer</dd>
+                </div>
+                <div>
+                  <dt>Timeline</dt>
+                  <dd>Nov 2023 - June 2024</dd>
+                </div>
+              </dl>
+            </div>
+      
+            <nav class="case-nav" aria-label="Case study sections">
+              <a href="#overview">Overview</a>
+              <a href="#problems">Problem</a>
+              <a class="case-nav-child" href="#decision-01"><span class="case-nav-index">01</span><span>Wrong Tone</span></a>
+              <a class="case-nav-child" href="#decision-02"><span class="case-nav-index">02</span><span>Borrowed Trust</span></a>
+              <a class="case-nav-child" href="#decision-03"><span class="case-nav-index">03</span><span>First 30 Seconds</span></a>
+              <a href="#outcome">Outcome</a>
+              <a href="#reflections">Reflections</a>
+            </nav>
+      
+            <article class="case-study">
+              <section id="overview" class="case-section">
+                <div class="case-notice">
+                  <p>
+                    Blue Guardian is now closed after two years of operation. The product and website are no longer active, but i had a great time building it and learned a lot throughout the process!
+                  </p>
+                </div>
+      
+                <p>
+                    In late 2023, I joined Blue Guardian as the sole founding designer to build a generative AI wellness platform for youth. Over an 8-month cycle, i owned the product's end-to-end user experience, designing the core conversational interface and executing a zero-budget growth strategy to acquire our initial users.
+                </p>
+      
+                <figure class="case-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/sQ47C15gL20?autoplay=1&mute=1&loop=1&playlist=sQ47C15gL20&controls=1&playsinline=1&rel=0&modestbranding=1"
+                    title="Blue Guardian demo video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </figure>
+                <a
+                  class="case-video-link"
+                  href="https://www.youtube.com/watch?v=sQ47C15gL20"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="case-video-link-flower" aria-hidden="true">✿</span>
+                  Watch full video
+                  <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                  </svg>
+                </a>
+              </section>
+      
+              <section id="problems" class="case-section">
+                <h2>Problem</h2>
+                <p>
+                  Traditional clinical care is restricted by high costs and long waitlists. On top of that, social stigma creates a massive psychological barrier, causing most people to give up before taking the first step to look for help.
+                </p>            
+                <div class="case-insight">
+                  <p>
+                    In Canada, <span>26% of youth</span> report poor or fair mental health, but <span>more than 1 in 3</span> who need support never receive it.
+                  </p>
+                </div>
+                <p class="case-source">Statistics Canada &amp; CIHI, 2023-2024</p>
+                   
+                <p>
+                  Blue Guardian wasn't built to fix the system. It was built for the moment before people decide to try. We focused on the friction occurring before clinical care even becomes an option: the lack of a low-stakes, accessible space where young people can reach out to support.
+                </p>  
+              </section>
+      
+              <section id="decision-01" class="case-section">
+                <p class="case-kicker">Decision 01</p>
+                <h2>The Wrong Tone</h2>
+                <p>
+                  By 2023, general-purpose LLMs were increasingly being used for mental health support.
+                </p>
+      
+                <div class="case-stats">
+                  <div>
+                    <strong>12%</strong>
+                    <span>of teens reported turning to AI chatbots for emotional support or advice</span>
+                  </div>
+                  <div>
+                    <strong>93 min</strong>
+                    <span>average daily time users spent on AI companion apps</span>
+                  </div>
+                </div>
+                <p class="case-source">Common Sense Media, 2024</p>
+      
+                <p>
+                  However, most AI models are not optimized for emotional contexts. They rely on a rigid response style that fails to adapt to users' emotional states. 
+                  Someone who's panicking and someone who just needs a push have completely different needs. Applying one default tone creates an immediate mismatch that triggers user drop-off.
+                </p>  
+                <div class="case-insight">
+                  <p>
+                    The well-intentioned provision of support may backfire and <span>lead to worse outcomes</span> when the supportive behavior <span>doesn't match the needs of the recipient.</span>
+                  </p>
+                </div>
+                <p class="case-source">Selcuk &amp; Ong, Health Psychology, 2013</p>
+      
+                <p>
+                  This limitation created the core product gap. Blue Guardian offered different response modes based on emotional context, letting the conversation surface which one fit rather 
+                  than asking users to decide upfront before interacting.
+                </p>
+                <div class="case-flow" aria-label="Blue Guardian adaptive support process flow">
+                  <div class="case-flow-step case-flow-start">
+                    <strong>1</strong>
+                    <p>User<br />Message</p>
+                  </div>
+                  <i></i>
+                  <div class="case-flow-step case-flow-new">
+                    <strong>2</strong>
+                    <p>Emotion<br />Detected</p>
+                    <em>new</em>
+                  </div>
+                  <i class="case-flow-dashed"></i>
+                  <div class="case-flow-step case-flow-new">
+                    <strong>3</strong>
+                    <p>Response<br />Options</p>
+                    <em>new</em>
+                  </div>
+                  <i></i>
+                  <div class="case-flow-step case-flow-original">
+                    <strong>4</strong>
+                    <p>AI<br />Adapts</p>
+                  </div>
+                </div>
+                <p class="case-source">Other AI goes directly from step 1 to a fixed-tone response.</p>
+              </section>
+      
+              <section id="decision-02" class="case-section">
+                <p class="case-kicker">Decision 02</p>
+                <h2>The Borrowed Trust</h2>
+                <p>
+                  With no advertising budget, reaching our initial users felt nearly impossible, especially since the target 
+                  audience are rarely proactive about seeking help. If they weren't going to find us, how could we find them?
+                </p>
+      
+                <p>
+                  User research pointed to a consistent pattern: people are more likely to seek support in environments they already feel comfortable in. That shaped how we thought about the channel.
+                </p>
+      
+                <div class="case-channel-matrix" aria-label="Blue Guardian channel comparison matrix">
+                  <div class="case-channel-cell case-channel-empty" aria-hidden="true"></div>
+                  <div class="case-channel-cell case-channel-heading">Free</div>
+                  <div class="case-channel-cell case-channel-heading">Trusted</div>
+                  <div class="case-channel-cell case-channel-heading">Reach</div>
+      
+                  <div class="case-channel-cell case-channel-label">Paid ads</div>
+                  <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+                  <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+                  <div class="case-channel-cell">
+                    <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                      <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+                    </svg>
+                  </div>
+      
+                  <div class="case-channel-cell case-channel-label">Student influencers</div>
+                  <div class="case-channel-cell"><span class="case-channel-mark case-channel-no">×</span></div>
+                  <div class="case-channel-cell"><span class="case-channel-varies">Varies</span></div>
+                  <div class="case-channel-cell">
+                    <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                      <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+                    </svg>
+                  </div>
+      
+                  <div class="case-channel-cell case-channel-label case-channel-selected">Campus peer accounts</div>
+                  <div class="case-channel-cell case-channel-selected">
+                    <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                      <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+                    </svg>
+                  </div>
+                  <div class="case-channel-cell case-channel-selected">
+                    <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                      <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+                    </svg>
+                  </div>
+                  <div class="case-channel-cell case-channel-selected">
+                    <svg class="case-channel-check" viewBox="0 0 18 14" role="img" aria-label="Yes">
+                      <path d="M1.5 7.2 6.6 12 16.5 1.5" />
+                    </svg>
+                  </div>
+                </div>
+      
+                <p>
+                  We reached out to campus peer accounts that were student-run, free to partner with, and followed by thousands of incoming students. I designed marketing assets for these partnerships. 
+                </p>
+      
+                <div class="case-marketing-placeholders" aria-label="Blue Guardian marketing asset placeholders">
+                  <figure class="case-marketing-placeholder">
+                    <img src="assets/blue-guardian-instagram-01.png" alt="Blue Guardian freshman year marketing asset" loading="lazy" decoding="async" />
+                  </figure>
+                  <figure class="case-marketing-placeholder">
+                    <img src="assets/blue-guardian-instagram-02.png" alt="Blue Guardian customizable chatbot marketing asset" loading="lazy" decoding="async" />
+                  </figure>
+                  <figure class="case-marketing-placeholder">
+                    <img src="assets/blue-guardian-instagram-03.png" alt="Blue Guardian voice integration marketing asset" loading="lazy" decoding="async" />
+                  </figure>
+                </div>
+      
+                <p>
+                  We acquired 300+ users within the first weeks of launch, with 0 spend on traditional marketing.
+                </p>
+              </section>
+      
+              <section id="decision-03" class="case-section">
+                <p class="case-kicker">Decision 03</p>
+                <h2>Designing the First 30 Seconds</h2>
+                <p>
+                  Acquiring users was only the first challenge. The next question was whether they'd come back.
+                </p>
+                <p>
+                  Early onboarding sessions showed that users made trust decisions extremely quickly, especially in emotionally vulnerable 
+                  moments. If the experience felt overwhelming, clinical, or emotionally cold, engagement dropped almost immediately.
+                </p>              
+                <div class="case-insight">           
+                  <p>
+                    When brand logos were blue, <span>74% of participants</span> classified the brand as trustworthy, compared to just 50% for red.
+                  </p>
+                </div>
+                <p class="case-source">Su, Cui & Walsh, Journal of Marketing Theory and Practice, 2019</p>
+                 <p>
+                  The interface was intentionally designed to reduce emotional friction during onboarding.
+                  Soft contrast, rounded components, and calmer visual hierarchy helped the product feel more approachable during the first interaction.
+                 </p> 
+                <figure class="case-visual case-visual-hero case-design-system-visual">
+                  <img src="assets/Design System.png" alt="Blue Guardian design system overview" loading="lazy" decoding="async" />
+                </figure>     
+                
+                <p>
+                  Users consistently described the onboarding experience as approachable rather than clinical. This friction reduction served as a direct lever for 
+                  early retention, transforming visual design into a product decision rather than just an aesthetic choice.
+                </p>  
+      
+              </section>
+      
+              <section id="outcome" class="case-section case-outcome">
+                <h2>The Outcome</h2>
+                <p>
+                  Blue Guardian launched and reached 300+ users within weeks, with zero advertising spend. The product was later featured in Maclean's for its approach to AI-driven youth mental health support.
+                </p>
+      
+                <div class="case-outcome-story" aria-label="Blue Guardian outcome story">
+                  <a
+                    class="case-outcome-feature"
+                    href="https://macleans.ca/society/the-prospect-meet-the-22-year-old-ceo-using-ai-to-boost-kids-mental-health/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Read the Maclean's article about Blue Guardian"
+                  >
+                    <span class="case-outcome-feature-label">Press</span>
+                    <h3>Meet the 22-year-old CEO using AI to boost kids' mental health</h3>
+                    <p>Maclean's, 2024</p>
+                    <span class="case-inline-link case-outcome-feature-cta">
+                      Read article
+                      <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                      </svg>
+                    </span>
+                  </a>
+      
+                  <div class="case-outcome-stats" aria-label="Blue Guardian outcome metrics">
+                    <div>
+                      <strong>300+</strong>
+                      <span>users engaged within weeks of launch</span>
+                    </div>
+                    <div>
+                      <strong>0 - 1</strong>
+                      <span> product, research, branding, and go-to-market</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+      
+              <section id="reflections" class="case-section case-reflections">
+                <h2>Reflections</h2>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Trust comes before value</h3>
+                    <p>
+                      Users don’t experience value unless they stay long enough to find it. Blue Guardian reinforced that trust isn’t something layered onto a product after it’s built. It shapes whether users engage with the product in the first place.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Distribution shapes adoption</h3>
+                    <p>
+                      A product can’t create impact if users never encounter it. This project pushed me to think beyond features and consider where trust already existed, and how distribution could become part of the user experience itself.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Not every important decision is a feature</h3>
+                    <p>
+                      Some of the most consequential decisions weren’t new capabilities. They influenced discovery, onboarding, and trust. Working on Blue Guardian reminded me that product success is often shaped by the experience around the feature, not just the feature itself.
+                    </p>
+                  </div>
+                </div>
+              </section>
+      
+              <div class="case-footer" aria-label="Case study footer">
+                <a class="case-footer-link case-footer-link-prev" href="index.html?route=accenture">
+                  <svg class="arrow-icon case-footer-arrow case-footer-arrow-left" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12H6M12 6l-6 6 6 6" />
+                  </svg>
+                  <span>Wildlight</span>
+                </a>
+      
+                <p class="case-footer-meta">
+                  Last updated Jun 4 · Listening to
+                  <a
+                    class="case-footer-soundtrack"
+                    href="https://open.spotify.com/search/Automatic%20%E5%AE%87%E5%A4%9A%E7%94%B0%E5%85%89"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="case-footer-soundtrack-title">Automatic by 宇多田光</span>
+                  </a>
+                  <svg class="case-footer-spotify" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <path d="M17.41 9.78a.95.95 0 0 1-1.31.31 9.14 9.14 0 0 0-8.23-.87.95.95 0 0 1-.65-1.79 11.03 11.03 0 0 1 9.95 1.05.95.95 0 0 1 .24 1.3Z" fill="#fff" />
+                    <path d="M16.2 12.55a.79.79 0 0 1-1.09.27 7.67 7.67 0 0 0-6.6-.65.79.79 0 0 1-.51-1.49 9.24 9.24 0 0 1 8 .78.79.79 0 0 1 .2 1.09Z" fill="#fff" />
+                    <path d="M15.14 15.05a.63.63 0 0 1-.87.22 6.06 6.06 0 0 0-4.9-.43.63.63 0 0 1-.38-1.21 7.32 7.32 0 0 1 5.94.53.63.63 0 0 1 .21.89Z" fill="#fff" />
+                  </svg>
+                </p>
+      
+                <a
+                  class="case-footer-link case-footer-link-next"
+                  href="index.html?route=nus-iss"
+                >
+                  <span>NUS-ISS</span>
+                  <svg class="arrow-icon case-footer-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12h14m-6-6 6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </main>
+    </template>
+
+    <template id="route-nus-iss">
+      <main id="app" class="page-shell case-page nus-iss-page">
+            <div class="case-intro-group">
+              <header class="intro case-hero">
+                <h1>NUS, Blended Learning Programmes</h1>
+                <p>Designing blended-learning content and feedback systems for NUS-ISS.</p>
+              </header>
+      
+              <dl class="case-meta" aria-label="Project metadata">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Research Assistant</dd>
+                </div>
+                <div>
+                  <dt>Team</dt>
+                  <dd>4 Senior Lecturers, 1 Research Assistant</dd>
+                </div>
+                <div>
+                  <dt>Timeline</dt>
+                  <dd>May - August 2023</dd>
+                </div>
+              </dl>
+            </div>
+      
+            <nav class="case-nav" aria-label="Case study sections">
+              <a href="#overview">Overview</a>
+              <a href="#problems">Problem</a>
+              <a class="case-nav-child" href="#decision-01"><span class="case-nav-index">01</span><span>Audience Fit</span></a>
+              <a class="case-nav-child" href="#decision-02"><span class="case-nav-index">02</span><span>Format Shift</span></a>
+              <a class="case-nav-child" href="#decision-03"><span class="case-nav-index">03</span><span>Feedback to Action</span></a>
+              <a href="#outcome">Outcome</a>
+              <a href="#reflections">Reflections</a>
+            </nav>
+      
+            <article class="case-study">
+              <section id="overview" class="case-section">
+                <p>
+                  In summer of 2023, I joined the Institute of Systems Science at the National University of Singapore, one of Asia's top-ranked institutions, as a Digital Innovation and Design Research Assistant.
+                </p>
+                <p>
+                  Working alongside 4 senior lecturers, I drove curriculum and experience design for 2,000+ working professionals across government, finance, and enterprise, with outputs adopted into all subsequent programme runs.
+                <figure class="case-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/y2ZfXlgEaJc?autoplay=1&mute=1&loop=1&playlist=y2ZfXlgEaJc&controls=0&playsinline=1&rel=0&modestbranding=1"
+                    title="NUS-ISS demo video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </figure>
+                <a
+                  class="case-video-link"
+                  href="https://www.youtube.com/watch?v=y2ZfXlgEaJc"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="case-video-link-flower" aria-hidden="true">✿</span>
+                  Watch full video
+                  <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
+                  </svg>
+                </a>
+              </section>
+      
+              <section id="problems" class="case-section">
+                <h2>Problem</h2>
+                <p>
+                  Blended learning for working professionals sits in an awkward middle ground. Learners arrive motivated, but generic content and a lack of personalised feedback quickly erode that. 
+                  Most programmes have no way of knowing when, or why, engagement drops off.
+                </p>
+      
+                <p>
+                  NUS-ISS was no exception. The programmes were reaching thousands of professionals across government and industry, but the experience had not kept pace with who these learners actually 
+                  were or what they truly needed from it.
+                </p>
+              </section>
+      
+              <section id="decision-01" class="case-section">
+                <p class="case-kicker">Decision 01</p>
+                <h2>The Audience Fit</h2>
+                <p>
+                  NUS-ISS had experience running online courses, but for students, not professionals. When blended learning expanded to serve working professionals, 
+                  the existing model no longer fit. 
+                </p>
+      
+                <p>
+                  Early conversations with learners and programme staff highlighted a different set of needs and expectations. Unlike full-time students, working professionals learn after hours, balance jobs and personal commitments, and expect content they can apply immediately. 
+                </p>
+      
+                <div class="case-compare-card" aria-label="Student learner and working professional comparison">
+                  <section class="case-compare-column" aria-labelledby="nus-student-learner">
+                    <h3 id="nus-student-learner">Student Learner</h3>
+                    <ul class="case-compare-list">
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <circle cx="10" cy="10" r="6.25" />
+                          <path d="M10 6.4v3.9l2.5 1.5" />
+                        </svg>
+                        <span>Dedicated study time</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M4.25 5.25h5a2.1 2.1 0 0 1 2 1.15 2.1 2.1 0 0 1 2-1.15h2.5v9.5h-2.5a3.6 3.6 0 0 0-2.9 1.15 3.6 3.6 0 0 0-2.85-1.15h-3.25Z" />
+                          <path d="M10.35 6.4v9" />
+                        </svg>
+                        <span>Learning for exams</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <circle cx="10" cy="6.1" r="2.35" />
+                          <path d="M5.85 14.9a4.15 4.15 0 0 1 8.3 0" />
+                        </svg>
+                        <span>Building foundational knowledge</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <circle cx="10" cy="10" r="6.25" />
+                          <circle cx="10" cy="10" r="1.2" />
+                        </svg>
+                        <span>Single-tasking</span>
+                      </li>
+                    </ul>
+                  </section>
+      
+                  <section class="case-compare-column" aria-labelledby="nus-working-professional">
+                    <h3 id="nus-working-professional">Working Professional</h3>
+                    <ul class="case-compare-list">
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <circle cx="10" cy="10" r="6.25" />
+                          <path d="M10 6.4v3.9l2.5 1.5" />
+                        </svg>
+                        <span>Fitting learning around a full-time job</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M5.1 7.15h9.8v7.25H5.1Z" />
+                          <path d="M7.65 7.15V6.2a2.35 2.35 0 0 1 4.7 0v.95" />
+                          <path d="M10 9.45v2.35" />
+                        </svg>
+                        <span>Learning to apply immediately</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M10 4.1v2.2" />
+                          <path d="M10 13.7v2.2" />
+                          <path d="M4.1 10h2.2" />
+                          <path d="M13.7 10h2.2" />
+                          <circle cx="10" cy="10" r="2.9" />
+                        </svg>
+                        <span>Bringing years of industry experience</span>
+                      </li>
+                      <li>
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M6.35 6.6h7.3" />
+                          <path d="M6.35 13.4h7.3" />
+                          <path d="M11.65 4.8 13.7 6.6l-2.05 1.85" />
+                          <path d="M8.35 11.55 6.3 13.4l2.05 1.8" />
+                        </svg>
+                        <span>Constantly context-switching</span>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+      
+                <p>
+                 By aligning on the needs of professional learners first, we established a clearer direction for how blended learning content should be structured, delivered, and evaluated.
+                </p>          
+              </section>
+      
+              <section id="decision-02" class="case-section">
+                <p class="case-kicker">Decision 02</p>
+                <h2>The Format Shift</h2>
+                <p>
+                  Traditional classroom learning relies on instructors to guide discussions, answer questions, and keep learners engaged throughout a session. In a blended learning environment, 
+                  that support becomes less immediate, placing greater responsibility on the content itself.
+                </p>
+                <div class="case-insight">
+                  <p>
+                    Working professionals preferred content that was <span>visual and concise</span>, and flagged long-form reading as a <span>barrier to completing modules.</span>
+                  </p>
+                </div>
+                <p class="case-source">Learner survey &middot; NUS-ISS blended learning &middot; n = 200+</p>
+      
+                <!-- VERIFY SOURCE BEFORE PUBLISHING -->
+                <div class="case-stats">
+                  <div>
+                    <strong>42%</strong>
+                    <span>higher retention with interactive visual content vs text-only modules</span>
+                  </div>
+                  <div>
+                    <strong>+16%</strong>
+                    <span>completion rate when videos are kept under 10 minutes</span>
+                  </div>
+                </div>
+                <p class="case-source">Coursera, Drivers of Quality in Online Learning (2020)</p>
+      
+                <p>
+                  These findings shifted our focus from creating more content to redesigning how content was delivered. We introduced a mix of videos, visual references, 
+                  and interactive exercises that working professionals could fit around a full schedule and apply immediately.
+                </p>
+      
+                <section class="case-example-stack" aria-label="NUS format shift examples">
+                  <article class="case-example-block">
+                    <span class="case-example-label case-example-label-accent">Learn by Watching</span>
+                    <figure class="case-video case-example-video">
+                      <iframe
+                        src="https://www.youtube.com/embed/uulDWS3vwzA?si=OVind1cpjUOquan4&controls=1&playsinline=1&rel=0&modestbranding=1"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                      ></iframe>
+                    </figure>
+                    <p class="case-source case-example-source">Storyboarded and animated a short teaching video that translated UX concepts into practical workplace scenarios.</p>
+                  </article>
+      
+                  <article class="case-example-block">
+                    <span class="case-example-label case-example-label-accent">Learn by Reference</span>
+                    <figure class="case-example-asset case-example-asset-reference">
+                      <img
+                        class="case-example-graphic case-example-graphic-full case-example-graphic-reference"
+                        src="assets/thematic-analysis.webp"
+                        alt="Thematic analysis infographic created for blended learning content"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </figure>
+                    <p class="case-source case-example-source">Designed a step-by-step infographic that turned thematic analysis into a quick-reference visual for review after class.</p>
+                  </article>
+                </section>
+                <p>
+                  The framework was adopted across all subsequent programme runs, reaching over 2,000+ learners across NUS-ISS's blended learning portfolio.
+                </p>
+              </section>
+      
+              <section id="decision-03" class="case-section">
+                <p class="case-kicker">Decision 03</p>
+                <h2>From Feedback to Action</h2>
+                <p>
+                  After each session, learners completed surveys, but the feedback rarely informed future decisions. Programme staff reviewed responses manually, and instructors often relied on individual observations rather than aggregated learner feedback.
+                </p>
+                <p>
+                  The problem wasn’t a lack of feedback. It was that the feedback was invisible.
+                </p>
+                <p>
+                  We consolidated survey responses into a single dashboard that surfaced trends across cohorts, making it easier for instructors and programme staff to identify patterns that were previously buried across hundreds of individual survey responses.
+                <figure class="case-outcome-card case-example-dashboard">
+                  <img src="assets/nus-dashboard-april-detail.png" alt="Dashboard showing NUS learner feedback trends across programmes, years, and satisfaction metrics" loading="lazy" decoding="async" />
+                </figure>
+                <p class="case-source case-example-source">Staff could filter feedback across programmes and years, track certification trends, and monitor overall satisfaction without manually consolidating survey data.</p>
+                <p>
+                  By making learner feedback visible and actionable, the dashboard reduced reporting time by 50% and saved more than 100+ staff hours annually.
+                </p>
+              </section>
+      
+              <section id="outcome" class="case-section case-outcome">
+                <h2>The Outcome</h2>
+                <p>
+                  Across one summer, the team transformed a traditionally instructor-led programme into a scalable blended learning experience. 
+                  The outputs was adopted across subsequent programme runs and became part of how NUS-ISS delivered professional education.
+                </p>
+      
+                <div class="case-outcome-images" aria-label="NUS project outcomes">
+                  <figure class="case-outcome-card">
+                    <img src="assets/nus-annual-luncheon-v2.jpg" alt="NUS-ISS Annual Luncheon team photo" loading="lazy" decoding="async" />
+                  </figure>
+                  <figure class="case-outcome-card">
+                    <img src="assets/nus-birthday-card-v2.jpg" alt="NUS-ISS birthday card photo" loading="lazy" decoding="async" />
+                  </figure>
+                </div>
+      
+                <div class="case-outcome-stats" aria-label="NUS case study outcomes">
+                  <div>
+                    <strong>2,000+</strong>
+                    <span>learners reached through<br />redesigned blended learning</span>
+                  </div>
+                  <div>
+                    <strong>50%</strong>
+                    <span>faster reporting through<br />feedback analytics</span>
+                  </div>
+                  <div>
+                    <strong>100+</strong>
+                    <span>staff hours saved through<br />automated reporting</span>
+                  </div>
+                </div>
+              </section>
+      
+              <section id="reflections" class="case-section case-reflections">
+                <h2>Reflections</h2>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Innovation Isn't Always About Building Something New</h3>
+                    <p>
+                      Many of the challenges in this project weren't caused by missing features or missing content. The biggest opportunities
+                      came from improving how existing systems worked together more effectively over time in practice.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>Data Doesn't Drive Decisions</h3>
+                    <p>
+                      The feedback already existed. The challenge was making it visible enough for teams to use. That experience changed how I
+                      think about analytics, reporting, and decision-making systems in everyday practice and team settings.
+                    </p>
+                  </div>
+                </div>
+      
+                <div class="case-reflection">
+                  <div>
+                    <h3>The Wrong Benchmark</h3>
+                    <p>
+                      Success became easier to define once we stopped comparing professional learners to students. The challenge was never how
+                      to move classroom content online. It was understanding that the audience, expectations, and measures of success had
+                      fundamentally changed.
+                    </p>
+                  </div>
+                </div>
+              </section>
+      
+              <div class="case-footer" aria-label="Case study footer">
+                <a class="case-footer-link case-footer-link-prev" href="index.html?route=blue-guardian">
+                  <svg class="arrow-icon case-footer-arrow case-footer-arrow-left" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12H6M12 6l-6 6 6 6" />
+                  </svg>
+                  <span>Blue Guardian</span>
+                </a>
+      
+                <p class="case-footer-meta">
+                  Last updated Jun 4 · Listening to
+                  <a
+                    class="case-footer-soundtrack"
+                    href="https://open.spotify.com/search/%E3%81%8D%E3%82%89%E3%82%8A%20%E8%97%A4%E4%BA%95%E9%A2%A8"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="case-footer-soundtrack-title">きらり by 藤井風</span>
+                  </a>
+                  <svg class="case-footer-spotify" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <path d="M17.41 9.78a.95.95 0 0 1-1.31.31 9.14 9.14 0 0 0-8.23-.87.95.95 0 0 1-.65-1.79 11.03 11.03 0 0 1 9.95 1.05.95.95 0 0 1 .24 1.3Z" fill="#fff" />
+                    <path d="M16.2 12.55a.79.79 0 0 1-1.09.27 7.67 7.67 0 0 0-6.6-.65.79.79 0 0 1-.51-1.49 9.24 9.24 0 0 1 8 .78.79.79 0 0 1 .2 1.09Z" fill="#fff" />
+                    <path d="M15.14 15.05a.63.63 0 0 1-.87.22 6.06 6.06 0 0 0-4.9-.43.63.63 0 0 1-.38-1.21 7.32 7.32 0 0 1 5.94.53.63.63 0 0 1 .21.89Z" fill="#fff" />
+                  </svg>
+                </p>
+      
+                <a
+                  class="case-footer-link case-footer-link-next"
+                  href="https://www.ibm.com/products/decision-intelligence"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>IBM</span>
+                  <svg class="arrow-icon case-footer-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12h14m-6-6 6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </main>
+    </template>
+
+
+
+    <script src="script.js?v=20260609-shell4"></script>
   </body>
 </html>
