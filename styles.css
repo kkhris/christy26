@@ -1490,7 +1490,7 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   html.js .about-story,
   html.js .blog-section,
   html.js .case-nav,
-  html.js .case-section {
+  html.js .case-study {
     opacity: 0;
     transform: translate3d(0, var(--reveal-y, 120px), 0);
     transition:
@@ -1504,8 +1504,10 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
     --reveal-duration: 750ms;
   }
 
+  /* Case page: intro-group, case-study, and case-nav all use the same Y and duration
+     so they animate as one unified entrance rather than pieces flying from different distances. */
   html.js .case-intro-group {
-    --reveal-y: 180px;
+    --reveal-y: 120px;
     --reveal-duration: 750ms;
   }
 
@@ -1524,14 +1526,14 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
     --reveal-duration: 750ms;
   }
 
-  html.js .case-section {
+  html.js .case-study {
     --reveal-y: 120px;
     --reveal-duration: 750ms;
   }
 
   html.js .case-nav {
-    --reveal-y: 40px;
-    --reveal-duration: 700ms;
+    --reveal-y: 120px;
+    --reveal-duration: 750ms;
     transform: translate3d(0, var(--reveal-y), 0) translateY(-50%);
   }
 
@@ -1541,7 +1543,7 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   html.js .about-story.is-visible,
   html.js .blog-section.is-visible,
   html.js .case-nav.is-visible,
-  html.js .case-section.is-visible {
+  html.js .case-study.is-visible {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
@@ -1567,7 +1569,7 @@ html.js .about-page[data-media-ready="true"] .blog-image-cover {
   .about-story,
   .blog-section,
   .case-nav,
-  .case-section {
+  .case-study {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

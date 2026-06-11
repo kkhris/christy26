@@ -1,5 +1,5 @@
 const revealSelector =
-  ".intro:not(.case-hero), .case-intro-group, .project-grid, .about-story, .blog-section, .case-nav, .case-section";
+  ".intro:not(.case-hero), .case-intro-group, .project-grid, .about-story, .blog-section, .case-nav, .case-study";
 
 const routeTable = {
   design: {
@@ -82,13 +82,13 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
 
   const getDelay = (section, index) => {
     if (prefersReducedMotion) return 0;
-
-    if (section.classList.contains("intro") || section.classList.contains("case-intro-group")) return 0;
-    // 200ms base matches the Framer reference's 0.3s delay (slightly tighter for SPA feel).
-    // Small per-index stagger (40ms, capped at 80ms) keeps sections from feeling robotic
-    // when multiple enter together, without becoming a sequence animation.
     const base = 200;
-    if (section.classList.contains("case-nav")) return base + 60;
+    // Case pages: every element fires together as one unified entrance — no stagger,
+    // no special cases. This prevents the hero (intro-group) from sliding in separately
+    // from the case sections, which caused the mixed-direction effect.
+    if (isCasePage) return base;
+    // Non-case pages: intro fires at 0ms, other sections stagger slightly.
+    if (section.classList.contains("intro") || section.classList.contains("case-intro-group")) return 0;
     return base + Math.min(index * 40, 80);
   };
 
@@ -96,7 +96,6 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
     if (prefersReducedMotion) {
       return Number.parseFloat(getComputedStyle(section).getPropertyValue("--reveal-duration")) || 650;
     }
-    if (isCasePage && section.classList.contains("case-nav")) return 700;
     return 750;
   };
 
