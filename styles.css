@@ -127,7 +127,12 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   padding-bottom: 7px;
 }
 
+.site-footer {
+  display: none; /* shown on mobile only */
+}
+
 .contact a::after,
+.site-footer a::after,
 .case-inline-link::after,
 .case-video-link::after,
 .case-footer-link::after {
@@ -151,7 +156,8 @@ html:not([data-route="about"]) .nav-links a[href="index.html"]:not(.is-active) {
   bottom: -4px;
 }
 
-.contact a:hover::after {
+.contact a:hover::after,
+.site-footer a:hover::after {
   opacity: 1;
 }
 
@@ -3466,7 +3472,6 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
 
   .intro p {
     font-size: 20px;
-    max-width: 18rem;
   }
 
   .about-story {
@@ -3544,25 +3549,27 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   }
 
   .case-footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     min-height: 0;
-    gap: 12px;
+    gap: 16px 24px;
   }
 
+  /* Row 1: meta full-width centered. Row 2: prev and next centered together. */
   .case-footer-meta {
+    order: 1;
+    width: 100%;
     position: static;
     left: auto;
     transform: none;
     white-space: normal;
-    text-align: left;
+    text-align: center;
   }
 
-  .case-footer-link-next {
-    margin-left: 0;
-    justify-self: start;
-  }
+  .case-footer-link-prev { order: 2; }
+  .case-footer-link-next { order: 3; margin-left: 0; }
 
   .project-grid {
     grid-template-columns: 1fr;
@@ -3576,5 +3583,47 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
 
   .project-card p {
     font-size: 16px;
+  }
+
+  /* Mobile contact footer */
+  .site-footer {
+    display: block;
+    padding: 24px 24px 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-footer h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .site-footer p {
+    display: flex;
+    gap: 20px;
+    margin: 0 0 10px;
+  }
+
+  .site-footer a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    padding-bottom: 7px;
+  }
+
+  .site-footer small {
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.3;
+    opacity: 0.55;
   }
 }
