@@ -83,31 +83,22 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
   const getDelay = (section, index) => {
     if (prefersReducedMotion) return 0;
     const base = 200;
-    // Case pages: every element fires together as one unified entrance — no stagger,
-    // no special cases. This prevents the hero (intro-group) from sliding in separately
-    // from the case sections, which caused the mixed-direction effect.
+    // All pages: every element fires with the same base delay (200ms), with a small
+    // per-index stagger (40ms, capped at 80ms) for non-case pages.
+    // Previously .intro got 0ms delay, causing the hero to animate 240ms ahead of
+    // everything else — the two separate waves looked like opposite directions.
     if (isCasePage) return base;
-    // Non-case pages: intro fires at 0ms, other sections stagger slightly.
-    if (section.classList.contains("intro") || section.classList.contains("case-intro-group")) return 0;
     return base + Math.min(index * 40, 80);
   };
 
-  const getDuration = (section) => {
-    if (prefersReducedMotion) {
-      return Number.parseFloat(getComputedStyle(section).getPropertyValue("--reveal-duration")) || 650;
-    }
-    return 750;
-  };
-
+  // Duration is always 750ms — already defined per-element in CSS.
+  // Only set the delay, which varies by page type and element index.
   sections.forEach((section, index) => {
     section.style.setProperty("--reveal-delay", `${getDelay(section, index)}ms`);
-    section.style.setProperty("--reveal-duration", `${getDuration(section)}ms`);
   });
 
   const maxRevealTime = sections.reduce((max, section, index) => {
-    const delay = getDelay(section, index);
-    const duration = getDuration(section);
-    return Math.max(max, delay + duration);
+    return Math.max(max, getDelay(section, index) + 750);
   }, 0);
 
   if (prefersReducedMotion) {
@@ -115,11 +106,6 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
     markRouteProfile("revealEnd");
     finishRouteProfile();
     return;
-  }
-
-  if (revealObserver) {
-    revealObserver.disconnect();
-    revealObserver = null;
   }
 
   // Whole-page entrance: all sections fire at once on page enter (not scroll-triggered).
@@ -142,7 +128,6 @@ const playRouteContentReveal = (root = getAppRoot()) => {
 
 let caseNavObserver = null;
 let staticRouterInitialized = false;
-let revealObserver = null;
 let currentRouterPath = getRouteKeyFromUrl(new URL(window.location.href));
 const pageCache = new Map();
 const routeDocumentCache = new Map();
@@ -345,10 +330,6 @@ const initPage = async ({ reveal = true, root = getAppRoot(), allowPrewarm = fal
   if (reveal) {
     initPageReveal({ root });
   } else {
-    if (revealObserver) {
-      revealObserver.disconnect();
-      revealObserver = null;
-    }
     showRevealSections(root);
   }
   initCaseNav(root);
