@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..800&display=block"
       rel="stylesheet"
     />
     <script>
@@ -32,19 +32,51 @@
         }
       }
     </style>
+    <!-- Preload About photo so it's ready before the user navigates there.
+         Images inside <template> tags are not fetched by the browser, so this
+         is the only reliable way to warm it before navigation. -->
+    <link rel="preload" as="image" href="assets/about-flowers.jpg" />
     <link rel="stylesheet" href="styles.css?v=20260610-mobile5" />
   </head>
   <body>
+    <!--
+      Font pre-warm: forces Firefox's WebRender to upload the Open Sans weight-600 glyph
+      atlas to GPU before the first route navigation. Without this, the first innerHTML
+      swap (which introduces many new 600-weight nodes) triggers a cold atlas re-upload
+      that briefly clears all weight-600 text from the viewport — including the sidebar
+      nav links and contact links. Weight-700 text is unaffected because the Design page
+      already renders 700 (active nav link, headings), keeping that atlas warm.
+      opacity:0.001 (not 0) is required: Firefox skips rasterizing fully-transparent text,
+      so zero opacity would defeat the purpose. position:fixed + left:-9999px keeps it
+      off-screen. aria-hidden and pointer-events:none make it inert to assistive tech and
+      interaction. The element has no layout impact on the rest of the page.
+    -->
+    <span
+      aria-hidden="true"
+      style="
+        position: fixed;
+        left: -9999px;
+        top: 0;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1;
+        opacity: 0.001;
+        pointer-events: none;
+        user-select: none;
+      "
+    >ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</span>
     <aside class="sidebar" aria-label="Site navigation">
       <nav class="nav-links">
         <a href="index.html">Design</a>
         <a href="index.html?route=about">About</a>
         <a
+          class="nav-link-external"
           href="https://drive.google.com/file/d/1d93qt_9L9ObPDxQ4qf8VoMVpE3SVUkau/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >
-          Resume
+          <span class="nav-label">Resume</span>
           <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5.1 17.1 15.2 7H7.4V3.7h13.1v13.1h-3.3V9L7.4 18.9Z" />
           </svg>
@@ -81,7 +113,8 @@
         <article class="project-card">
           <a
             class="project-media concept-media concept-ibm"
-            href="https://www.ibm.com/products/decision-intelligence" target="_blank"
+            href="https://www.ibm.com/products/decision-intelligence"
+            target="_blank"
             aria-label="IBM project placeholder"
           >
             <div class="concept-layer concept-layer-cover ibm-cover">
@@ -258,7 +291,8 @@
               <article class="project-card">
                 <a
                   class="project-media concept-media concept-ibm"
-                  href="https://www.ibm.com/products/decision-intelligence" target="_blank"
+                  href="https://www.ibm.com/products/decision-intelligence"
+                  target="_blank"
                   aria-label="IBM project placeholder"
                 >
                   <div class="concept-layer concept-layer-cover ibm-cover">
@@ -275,7 +309,7 @@
                   </div>
                 </a>
                 <h2>IBM, Decision Intelligence (in progress...)</h2>
-                <p>Turn business policies into AI-authored decisions.</p>
+                <p>Automating business decisioning through agentic AI.</p>
               </article>
       
               <article class="project-card">

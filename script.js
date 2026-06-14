@@ -120,12 +120,6 @@ const initPageReveal = ({ root = getAppRoot() } = {}) => {
   }, Math.max(maxRevealTime, revealKickDelay));
 };
 
-const playRouteContentReveal = (root = getAppRoot()) => {
-  markRouteProfile("revealStart");
-  markRouteProfile("revealEnd");
-  finishRouteProfile();
-};
-
 let caseNavObserver = null;
 let staticRouterInitialized = false;
 let currentRouterPath = getRouteKeyFromUrl(new URL(window.location.href));
