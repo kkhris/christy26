@@ -1,0 +1,22 @@
+{
+  "name": "christal-lyu-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:4181": "vite --host 127.0.0.1 --port 4181",
+    "build": "vite build && vite build --ssr src/entry-prerender.jsx --outDir dist/server && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "preview:4181": "vite preview --host 127.0.0.1 --port 4181"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.10"
+  }
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Blue Guardian customizable chatbot campaign asset</title>
+  <desc id="desc">A Blue Guardian marketing card about customizable chatbot support.</desc>
+  <rect width="1080" height="1080" fill="#edf5ff"/>
+  <text x="105" y="250" fill="#2f80df" font-family="Open Sans, Arial, sans-serif" font-size="64" font-weight="800">Customizable</text>
+  <text x="105" y="330" fill="#0a0d12" font-family="Open Sans, Arial, sans-serif" font-size="64" font-weight="800">Advanced Chatbot</text>
+  <text x="105" y="405" fill="#0a0d12" font-family="Open Sans, Arial, sans-serif" font-size="26" font-weight="700">Tailor your experience by adapting our chatbot to your unique communication</text>
+  <text x="105" y="440" fill="#0a0d12" font-family="Open Sans, Arial, sans-serif" font-size="26" font-weight="700">style and mental health goals.</text>
+  <g transform="translate(105 535)">
+    <g>
+      <rect width="255" height="250" rx="12" fill="#ffffff"/>
+      <circle cx="128" cy="88" r="58" fill="#f6fbff"/>
+      <path d="M89 94c12-41 41-61 75-46 33 14 40 56 17 86-26-25-53-29-92-40z" fill="#c8d8ec"/>
+      <circle cx="117" cy="88" r="28" fill="#f6a985"/>
+      <rect x="72" y="165" width="110" height="8" rx="4" fill="#899db9"/>
+      <rect x="55" y="190" width="145" height="8" rx="4" fill="#c8d8ec"/>
+      <rect x="75" y="212" width="104" height="8" rx="4" fill="#d7e3f1"/>
+      <text x="128" y="177" text-anchor="middle" fill="#506985" font-family="Open Sans, Arial, sans-serif" font-size="17" font-weight="800">Build Self-Esteem</text>
+    </g>
+    <g transform="translate(310 0)">
+      <rect width="255" height="250" rx="12" fill="#ffffff"/>
+      <circle cx="128" cy="88" r="58" fill="#f6fbff"/>
+      <rect x="103" y="55" width="52" height="76" rx="12" fill="#2f80df"/>
+      <circle cx="129" cy="46" r="20" fill="#f6a985"/>
+      <rect x="83" y="84" width="36" height="20" rx="10" fill="#d8e8fa"/>
+      <rect x="151" y="84" width="34" height="20" rx="10" fill="#d8e8fa"/>
+      <rect x="74" y="165" width="108" height="8" rx="4" fill="#899db9"/>
+      <rect x="56" y="190" width="142" height="8" rx="4" fill="#c8d8ec"/>
+      <rect x="76" y="212" width="102" height="8" rx="4" fill="#d7e3f1"/>
+      <text x="128" y="177" text-anchor="middle" fill="#506985" font-family="Open Sans, Arial, sans-serif" font-size="17" font-weight="800">Reduce Stress</text>
+    </g>
+    <g transform="translate(620 0)">
+      <rect width="255" height="250" rx="12" fill="#ffffff"/>
+      <circle cx="128" cy="88" r="58" fill="#f6fbff"/>
+      <circle cx="97" cy="83" r="22" fill="#f6a985"/>
+      <circle cx="161" cy="83" r="22" fill="#f6a985"/>
+      <rect x="78" y="111" width="48" height="46" rx="12" fill="#7aaeea"/>
+      <rect x="139" y="111" width="48" height="46" rx="12" fill="#2f80df"/>
+      <path d="M116 82h34" stroke="#2f80df" stroke-width="8" stroke-linecap="round"/>
+      <rect x="44" y="165" width="168" height="8" rx="4" fill="#899db9"/>
+      <rect x="54" y="190" width="148" height="8" rx="4" fill="#c8d8ec"/>
+      <rect x="72" y="212" width="112" height="8" rx="4" fill="#d7e3f1"/>
+      <text x="128" y="177" text-anchor="middle" fill="#506985" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800">Interpersonal Relationships</text>
+    </g>
+  </g>
+  <g transform="translate(420 935)">
+    <rect x="0" y="0" width="30" height="30" rx="8" fill="#ffffff"/>
+    <path d="M15 6l9 4v8c0 6-4 10-9 12-5-2-9-6-9-12v-8z" fill="#2f80df"/>
+    <text x="50" y="24" fill="#102a5f" font-family="Open Sans, Arial, sans-serif" font-size="25" font-weight="800">BLUE GUARDIAN</text>
+  </g>
+</svg>

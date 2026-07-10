@@ -1,55 +1,53 @@
 # Christal Lyu Portfolio
 
-Personal portfolio website for Christal Lyu.
+React + Vite single-page app scaffold for Christal Lyu's portfolio.
 
-## Pages
+## Current Scope
 
-- `index.html` — homepage
-- `about.html` — about page
-- `accenture.html` — Wildlight / Accenture case study
-- `blue-guardian.html` — Blue Guardian case study
-- `nus-iss.html` — NUS-ISS case study
+- Persistent left sidebar app shell
+- React Router-based navigation
+- Placeholder pages for home, about, and project routes
+- Minimal layout styling only
+
+## Routes
+
+- `/` — Home / Design
+- `/about` — About
+- `/projects/wildlight` — Wildlight
+- `/projects/blue-guardian` — Blue Guardian
+- `/projects/nus-iss` — NUS-ISS
+- `/resume` — placeholder route for future external resume handling
 
 ## Project Structure
 
 ```text
-.
-├── index.html
-├── about.html
-├── accenture.html
-├── blue-guardian.html
-├── nus-iss.html
-├── styles.css
-├── script.js
-└── assets/
+src/
+├── App.jsx
+├── main.jsx
+├── layouts/
+│   └── AppShell.jsx
+├── components/
+│   └── Sidebar.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── About.jsx
+│   └── projects/
+│       ├── Wildlight.jsx
+│       ├── BlueGuardian.jsx
+│       └── NusIss.jsx
+└── styles/
+    └── global.css
 ```
 
-## Local Preview
-
-Run a simple static server from this folder:
+## Local Development
 
 ```sh
-python3 -m http.server 4321
+npm install
+npm run dev
 ```
 
-Then open:
+## Build
 
-```text
-http://localhost:4321
+```sh
+npm run build
 ```
-
-## Deploying to GitHub Pages
-
-1. Upload all project files to your GitHub repository.
-2. Keep the folder structure intact, especially the `assets/` folder.
-3. In GitHub, go to `Settings` → `Pages`.
-4. Under `Source`, choose `Deploy from a branch`.
-5. Select the `main` branch and `/root`.
-
-Your portfolio will then be published through GitHub Pages.
-
-## Notes
-
-- This is a static site with no build step.
-- All styling is in `styles.css`.
-- Basic page behavior and navigation logic are in `script.js`.
