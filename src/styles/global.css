@@ -2946,7 +2946,7 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
     display: none;
     width: 100%;
     padding: 0 20px 18px;
-    gap: 14px;
+    gap: 0;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -2956,7 +2956,16 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   }
 
   .nav-links a {
+    display: inline-flex;
+    width: 100%;
     min-height: 32px;
+    align-items: center;
+    padding: 6px 0;
+  }
+
+  .nav-links .nav-link-external {
+    display: inline-flex;
+    width: 100%;
     align-items: center;
   }
 

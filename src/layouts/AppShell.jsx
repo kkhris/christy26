@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useNavigationType } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import Sidebar from "../components/Sidebar";
+import SiteFooter from "../components/SiteFooter";
 import useScrollManager from "../hooks/useScrollManager";
 
 export default function AppShell() {
@@ -29,6 +30,7 @@ export default function AppShell() {
       <Sidebar />
       <main ref={mainRef} className="app-main">
         <Outlet context={{ scrollRootRef: mainRef, transition }} />
+        <SiteFooter />
       </main>
     </div>
   );

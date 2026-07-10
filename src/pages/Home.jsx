@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import ArrowIcon from "../components/ArrowIcon";
 import usePageReveal from "../hooks/usePageReveal";
 import { loadBlueGuardian, loadNusIss, loadWildlight } from "../routeLoaders";
 import { assetPath } from "../utils/paths";
@@ -18,9 +17,6 @@ export default function Home() {
   const homeSectionClassName = shouldAnimateHome
     ? "project-grid page-reveal-target page-reveal-grid page-reveal-home-grid"
     : "project-grid page-reveal-home-grid";
-  const homeFooterClassName = shouldAnimateHome
-    ? "site-footer page-reveal-target page-reveal-grid page-reveal-home-footer"
-    : "site-footer page-reveal-home-footer";
   const homeRevealStyle = shouldAnimateHome
     ? { "--page-reveal-y": "200px", "--page-reveal-duration": "1000ms" }
     : undefined;
@@ -28,7 +24,6 @@ export default function Home() {
     () => [
       { selector: ".page-reveal-home-hero", delay: 0 },
       { selector: ".page-reveal-home-grid", delay: 200 },
-      { selector: ".page-reveal-home-footer", delay: 200 },
     ],
     [],
   );
@@ -338,29 +333,6 @@ export default function Home() {
           </article>
         </section>
       </div>
-
-      <footer
-        className={homeFooterClassName}
-        style={homeRevealStyle}
-        aria-label="Contact"
-      >
-        <h2>Let&apos;s Connect!</h2>
-        <p>
-          <a
-            href="https://www.linkedin.com/in/lyuchristal"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-            <ArrowIcon />
-          </a>
-          <a href="mailto:y44lyu@uwaterloo.ca">
-            Email
-            <ArrowIcon />
-          </a>
-        </p>
-        <small>&copy;Christal Lyu, 2026</small>
-      </footer>
     </div>
   );
 }
