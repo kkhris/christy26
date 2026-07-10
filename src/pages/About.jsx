@@ -1,33 +1,34 @@
 import { useMemo, useRef } from "react";
 import usePageReveal from "../hooks/usePageReveal";
+import { assetPath } from "../utils/paths";
 
 const notes = [
   {
     title: "Semester in Singapore",
     description: "Heat, humidity, and lots of chicken rice.",
     href: "https://sage-rook-c0d.notion.site/Life-in-Singapore-be-like-dc92a1dba36d45399cfd8741c4ea8a07",
-    coverLight: "/assets/blogs/01-cover-light.png",
-    coverDark: "/assets/blogs/01-cover-dark.png",
-    hoverLight: "/assets/blogs/01-hover-light.png",
-    hoverDark: "/assets/blogs/01-hover-dark.png",
+    coverLight: assetPath("/assets/blogs/01-cover-light.png"),
+    coverDark: assetPath("/assets/blogs/01-cover-dark.png"),
+    hoverLight: assetPath("/assets/blogs/01-hover-light.png"),
+    hoverDark: assetPath("/assets/blogs/01-hover-dark.png"),
   },
   {
     title: "The 3D Era",
     description: "My messy attempt at learning 3D modeling.",
     href: "https://sage-rook-c0d.notion.site/Life-as-a-3D-Modelling-Beginner-34fac252ce46467483c644663921f222",
-    coverLight: "/assets/blogs/02-cover-light.png",
-    coverDark: "/assets/blogs/02-cover-dark.png",
-    hoverLight: "/assets/blogs/02-hover-light.png",
-    hoverDark: "/assets/blogs/02-hover-dark.png",
+    coverLight: assetPath("/assets/blogs/02-cover-light.png"),
+    coverDark: assetPath("/assets/blogs/02-cover-dark.png"),
+    hoverLight: assetPath("/assets/blogs/02-hover-light.png"),
+    hoverDark: assetPath("/assets/blogs/02-hover-dark.png"),
   },
   {
     title: "The Unofficial Bio",
     description: "Things that didn't make it to my resume.",
     href: "https://sage-rook-c0d.notion.site/a-little-bit-more-about-me-272ca89af24680f0a88bf8d910410048",
-    coverLight: "/assets/blogs/03-cover-light.png",
-    coverDark: "/assets/blogs/03-cover-dark.png",
-    hoverLight: "/assets/blogs/03-hover-light.png",
-    hoverDark: "/assets/blogs/03-hover-dark.png",
+    coverLight: assetPath("/assets/blogs/03-cover-light.png"),
+    coverDark: assetPath("/assets/blogs/03-cover-dark.png"),
+    hoverLight: assetPath("/assets/blogs/03-hover-light.png"),
+    hoverDark: assetPath("/assets/blogs/03-hover-dark.png"),
   },
 ];
 
@@ -76,7 +77,7 @@ export default function About() {
 
         <img
           className="about-photo"
-          src="/assets/about-flowers.jpg"
+          src={assetPath("/assets/about-flowers.jpg")}
           alt="Close-up photo of flowers"
           loading="eager"
           decoding="async"

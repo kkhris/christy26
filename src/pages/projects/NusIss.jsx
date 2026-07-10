@@ -4,6 +4,7 @@ import ArrowIcon from "../../components/ArrowIcon";
 import { FooterArrow, SpotifyIcon } from "../../components/CaseFooterIcons";
 import useCaseSectionNavigation from "../../hooks/useCaseSectionNavigation";
 import usePageReveal from "../../hooks/usePageReveal";
+import { assetPath } from "../../utils/paths";
 
 export default function NusIss() {
   const pageRef = useRef(null);
@@ -207,7 +208,7 @@ export default function NusIss() {
               <figure className="case-example-asset case-example-asset-reference">
                 <img
                   className="case-example-graphic case-example-graphic-full case-example-graphic-reference"
-                  src="/assets/thematic-analysis.webp"
+                  src={assetPath("/assets/thematic-analysis.webp")}
                   alt="Thematic analysis infographic created for blended learning content"
                   loading="lazy"
                   decoding="async"
@@ -231,7 +232,7 @@ export default function NusIss() {
             We consolidated survey responses into a single dashboard that surfaced trends across cohorts, making it easier for instructors and programme staff to identify patterns that were previously buried across hundreds of individual survey responses.
           </p>
           <figure className="case-outcome-card case-example-dashboard">
-            <img src="/assets/nus-dashboard-april-detail.png" alt="Dashboard showing NUS learner feedback trends across programmes, years, and satisfaction metrics" loading="lazy" decoding="async" />
+            <img src={assetPath("/assets/nus-dashboard-april-detail.png")} alt="Dashboard showing NUS learner feedback trends across programmes, years, and satisfaction metrics" loading="lazy" decoding="async" />
           </figure>
           <p className="case-source case-example-source">Staff could filter feedback across programmes and years, track certification trends, and monitor overall satisfaction without manually consolidating survey data.</p>
           <p>By making learner feedback visible and actionable, the dashboard reduced reporting time by 50% and saved 100+ staff hours annually.</p>
@@ -245,10 +246,10 @@ export default function NusIss() {
 
           <div className="case-outcome-images" aria-label="NUS project outcomes">
             <figure className="case-outcome-card">
-              <img src="/assets/nus-annual-luncheon-v2.jpg" alt="NUS-ISS Annual Luncheon team photo" loading="lazy" decoding="async" />
+              <img src={assetPath("/assets/nus-annual-luncheon-v2.jpg")} alt="NUS-ISS Annual Luncheon team photo" loading="lazy" decoding="async" />
             </figure>
             <figure className="case-outcome-card">
-              <img src="/assets/nus-birthday-card-v2.jpg" alt="NUS-ISS birthday card photo" loading="lazy" decoding="async" />
+              <img src={assetPath("/assets/nus-birthday-card-v2.jpg")} alt="NUS-ISS birthday card photo" loading="lazy" decoding="async" />
             </figure>
           </div>
 

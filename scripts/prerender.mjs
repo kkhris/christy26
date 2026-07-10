@@ -6,14 +6,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, "../dist");
 const serverEntryPath = path.join(distDir, "server/entry-prerender.js");
 const templatePath = path.join(distDir, "index.html");
+const basePath = "/christy26";
 
 const routes = [
-  { url: "/", output: "index.html" },
-  { url: "/about", output: "about/index.html" },
-  { url: "/resume", output: "resume/index.html" },
-  { url: "/projects/wildlight", output: "projects/wildlight/index.html" },
-  { url: "/projects/blue-guardian", output: "projects/blue-guardian/index.html" },
-  { url: "/projects/nus-iss", output: "projects/nus-iss/index.html" },
+  { url: `${basePath}/`, output: "index.html" },
+  { url: `${basePath}/about`, output: "about/index.html" },
+  { url: `${basePath}/resume`, output: "resume/index.html" },
+  { url: `${basePath}/projects/wildlight`, output: "projects/wildlight/index.html" },
+  { url: `${basePath}/projects/blue-guardian`, output: "projects/blue-guardian/index.html" },
+  { url: `${basePath}/projects/nus-iss`, output: "projects/nus-iss/index.html" },
 ];
 
 const { render } = await import(pathToFileURL(serverEntryPath).href);

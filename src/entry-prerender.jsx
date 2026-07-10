@@ -9,7 +9,7 @@ import Wildlight from "./pages/projects/Wildlight";
 
 export function render(url) {
   return renderToString(
-    <StaticRouter location={url}>
+    <StaticRouter location={url} basename="/christy26/">
       <AppRoutes
         components={{
           Home,

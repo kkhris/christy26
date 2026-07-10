@@ -3,6 +3,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import ArrowIcon from "../components/ArrowIcon";
 import usePageReveal from "../hooks/usePageReveal";
 import { loadBlueGuardian, loadNusIss, loadWildlight } from "../routeLoaders";
+import { assetPath } from "../utils/paths";
 
 const HOME_ENHANCED_MEDIA_DELAY_MS = 1500;
 
@@ -96,10 +97,10 @@ export default function Home() {
             >
               <div className="concept-layer concept-layer-cover ibm-cover">
                 <picture>
-                  <source media="(prefers-color-scheme: dark)" srcSet="/assets/ibm-logo-white-rgb-crop.png" />
+                  <source media="(prefers-color-scheme: dark)" srcSet={assetPath("/assets/ibm-logo-white-rgb-crop.png")} />
                   <img
                     className="brand-logo ibm-logo ibm-logo-theme"
-                    src="/assets/ibm-logo-blue-rgb.png"
+                    src={assetPath("/assets/ibm-logo-blue-rgb.png")}
                     alt="IBM"
                     loading="eager"
                     decoding="async"
@@ -142,7 +143,7 @@ export default function Home() {
               <div className="accenture-brand-lockup" aria-hidden="true">
                 <img
                   className="brand-logo accenture-reveal-logo"
-                  src="/assets/accenture-logo-raster.png"
+                  src={assetPath("/assets/accenture-logo-raster.png")}
                   alt="Accenture"
                   loading="eager"
                   decoding="async"
@@ -150,10 +151,10 @@ export default function Home() {
                   data-home-critical-image
                 />
                 <picture>
-                  <source media="(prefers-color-scheme: dark)" srcSet="/assets/wildlight-logo-light-crop.png" />
+                  <source media="(prefers-color-scheme: dark)" srcSet={assetPath("/assets/wildlight-logo-light-crop.png")} />
                   <img
                     className="brand-logo wildlight-support-logo wildlight-support-logo-theme"
-                    src="/assets/wildlight-logo-raster.png"
+                    src={assetPath("/assets/wildlight-logo-raster.png")}
                     alt=""
                     aria-hidden="true"
                     loading="eager"
@@ -167,7 +168,7 @@ export default function Home() {
                 <div className="concept-layer concept-layer-hover accenture-reveal-details" aria-hidden="true">
                   <img
                     className="wildlight-component wildlight-component-heading"
-                    src="/assets/wildlight-ai-heading.svg"
+                    src={assetPath("/assets/wildlight-ai-heading.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -175,7 +176,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-impact wildlight-component-impact-light"
-                    src="/assets/wildlight-impact-cards.svg"
+                    src={assetPath("/assets/wildlight-impact-cards.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -183,7 +184,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-impact wildlight-component-impact-dark"
-                    src="/assets/wildlight-impact-cards-dark.svg"
+                    src={assetPath("/assets/wildlight-impact-cards-dark.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -191,7 +192,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-prep"
-                    src="/assets/wildlight-prep-complete-large.svg"
+                    src={assetPath("/assets/wildlight-prep-complete-large.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -199,7 +200,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-chip wildlight-component-chip-grow"
-                    src="/assets/wildlight-grow-food.svg"
+                    src={assetPath("/assets/wildlight-grow-food.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -207,7 +208,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-chip wildlight-component-chip-sun"
-                    src="/assets/wildlight-hover-state.svg"
+                    src={assetPath("/assets/wildlight-hover-state.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -215,7 +216,7 @@ export default function Home() {
                   />
                   <img
                     className="wildlight-component wildlight-component-chip wildlight-component-chip-sandy"
-                    src="/assets/wildlight-sandy.svg"
+                    src={assetPath("/assets/wildlight-sandy.svg")}
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -243,10 +244,10 @@ export default function Home() {
               }}
             >
               <picture>
-                <source media="(prefers-color-scheme: dark)" srcSet="/assets/blue-guardian-cover-dark-home.png" />
+                <source media="(prefers-color-scheme: dark)" srcSet={assetPath("/assets/blue-guardian-cover-dark-home.png")} />
                 <img
                   className="project-image project-image-cover project-image-theme"
-                  src="/assets/blue-guardian-cover-light-home.png"
+                  src={assetPath("/assets/blue-guardian-cover-light-home.png")}
                   alt="Blue Guardian product interface on desktop"
                   loading="eager"
                   decoding="async"
@@ -256,10 +257,10 @@ export default function Home() {
               </picture>
               {enhancedMediaReady ? (
                 <picture>
-                  <source media="(prefers-color-scheme: dark)" srcSet="/assets/blue-guardian-hover-dark-home.png" />
+                  <source media="(prefers-color-scheme: dark)" srcSet={assetPath("/assets/blue-guardian-hover-dark-home.png")} />
                   <img
                     className="project-image project-image-hover project-image-hover-theme"
-                    src="/assets/blue-guardian-hover-light-home.png"
+                    src={assetPath("/assets/blue-guardian-hover-light-home.png")}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
@@ -289,10 +290,10 @@ export default function Home() {
             >
               <div className="concept-layer concept-layer-cover">
                 <picture>
-                  <source media="(prefers-color-scheme: dark)" srcSet="/assets/nus-logo-light.svg" />
+                  <source media="(prefers-color-scheme: dark)" srcSet={assetPath("/assets/nus-logo-light.svg")} />
                   <img
                     className="brand-logo brand-logo-nus brand-logo-nus-single brand-logo-nus-theme"
-                    src="/assets/nus-logo.svg"
+                    src={assetPath("/assets/nus-logo.svg")}
                     alt="NUS"
                     loading="eager"
                     decoding="async"

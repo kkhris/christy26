@@ -4,6 +4,7 @@ import ArrowIcon from "../../components/ArrowIcon";
 import { FooterArrow, SpotifyIcon } from "../../components/CaseFooterIcons";
 import useCaseSectionNavigation from "../../hooks/useCaseSectionNavigation";
 import usePageReveal from "../../hooks/usePageReveal";
+import { assetPath } from "../../utils/paths";
 
 export default function BlueGuardian() {
   const pageRef = useRef(null);
@@ -247,13 +248,13 @@ export default function BlueGuardian() {
 
           <div className="case-marketing-placeholders" aria-label="Blue Guardian marketing asset placeholders">
             <figure className="case-marketing-placeholder">
-              <img src="/assets/blue-guardian-instagram-01.png" alt="Blue Guardian freshman year marketing asset" loading="lazy" decoding="async" />
+              <img src={assetPath("/assets/blue-guardian-instagram-01.png")} alt="Blue Guardian freshman year marketing asset" loading="lazy" decoding="async" />
             </figure>
             <figure className="case-marketing-placeholder">
-              <img src="/assets/blue-guardian-instagram-02.png" alt="Blue Guardian customizable chatbot marketing asset" loading="lazy" decoding="async" />
+              <img src={assetPath("/assets/blue-guardian-instagram-02.png")} alt="Blue Guardian customizable chatbot marketing asset" loading="lazy" decoding="async" />
             </figure>
             <figure className="case-marketing-placeholder">
-              <img src="/assets/blue-guardian-instagram-03.png" alt="Blue Guardian voice integration marketing asset" loading="lazy" decoding="async" />
+              <img src={assetPath("/assets/blue-guardian-instagram-03.png")} alt="Blue Guardian voice integration marketing asset" loading="lazy" decoding="async" />
             </figure>
           </div>
 
@@ -277,7 +278,7 @@ export default function BlueGuardian() {
             The interface was intentionally designed to reduce emotional friction during onboarding. Soft contrast, rounded components, and calmer visual hierarchy helped the product feel more approachable during the first interaction.
           </p>
           <figure className="case-visual case-visual-hero case-design-system-visual">
-            <img src="/assets/Design System.png" alt="Blue Guardian design system overview" loading="lazy" decoding="async" />
+            <img src={assetPath("/assets/Design System.png")} alt="Blue Guardian design system overview" loading="lazy" decoding="async" />
           </figure>
           <p>
             Users consistently described the onboarding experience as approachable rather than clinical. This friction reduction served as a direct lever for early retention, transforming visual design into a product decision rather than just an aesthetic choice.

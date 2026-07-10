@@ -4,6 +4,7 @@ import ArrowIcon from "../../components/ArrowIcon";
 import { FooterArrow, SpotifyIcon } from "../../components/CaseFooterIcons";
 import useCaseSectionNavigation from "../../hooks/useCaseSectionNavigation";
 import usePageReveal from "../../hooks/usePageReveal";
+import { assetPath } from "../../utils/paths";
 
 export default function Wildlight() {
   const pageRef = useRef(null);
@@ -186,7 +187,7 @@ export default function Wildlight() {
           <div className="case-image-grid" aria-label="Usability testing cycle images">
             <figure className="case-image-slot">
               <img
-                src="/assets/wildlight-scope-reset-01.jpg"
+                src={assetPath("/assets/wildlight-scope-reset-01.jpg")}
                 alt="Wildlight demo setup at Web Summit Vancouver"
                 loading="lazy"
                 decoding="async"
@@ -194,7 +195,7 @@ export default function Wildlight() {
             </figure>
             <figure className="case-image-slot">
               <img
-                src="/assets/wildlight-scope-reset-02.jpg"
+                src={assetPath("/assets/wildlight-scope-reset-02.jpg")}
                 alt="Wildlight usability testing conversation"
                 loading="lazy"
                 decoding="async"
@@ -318,14 +319,14 @@ export default function Wildlight() {
             <div className="case-comparison-frame" data-current={comparisonState}>
               <img
                 className="case-comparison-image case-comparison-before"
-                src="/assets/wildlight-plan-before.png"
+                src={assetPath("/assets/wildlight-plan-before.png")}
                 alt="Original Wildlight plan page before the embedded chat panel"
                 loading="lazy"
                 decoding="async"
               />
               <img
                 className="case-comparison-image case-comparison-after"
-                src="/assets/wildlight-plan-after.png"
+                src={assetPath("/assets/wildlight-plan-after.png")}
                 alt="Wildlight plan page with the embedded AI chat panel"
                 loading="lazy"
                 decoding="async"
@@ -359,7 +360,7 @@ export default function Wildlight() {
           <div className="case-outcome-images" aria-label="Web Summit Vancouver 2026 image placeholders">
             <figure className="case-outcome-card">
               <img
-                src="/assets/websumit01.jpg"
+                src={assetPath("/assets/websumit01.jpg")}
                 alt="Wildlight booth at Web Summit Vancouver 2026"
                 loading="lazy"
                 decoding="async"
@@ -367,7 +368,7 @@ export default function Wildlight() {
             </figure>
             <figure className="case-outcome-card">
               <img
-                src="/assets/websumit02.jpg"
+                src={assetPath("/assets/websumit02.jpg")}
                 alt="Wildlight team at Web Summit Vancouver 2026"
                 loading="lazy"
                 decoding="async"
