@@ -40,6 +40,7 @@ function trailingSlashRedirect() {
 }
 
 export default defineConfig({
+  base: "/christy26/",
   appType: "spa",
   plugins: [react(), trailingSlashRedirect()],
 });

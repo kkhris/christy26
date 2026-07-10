@@ -6,7 +6,7 @@ import "./styles/global.css";
 const rootElement = document.getElementById("root");
 
 const app = (
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <App />
   </BrowserRouter>
 );
