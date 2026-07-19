@@ -6,6 +6,7 @@ import ArrowIcon from "./ArrowIcon";
 export default function Sidebar() {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
   const isWorkActive = pathname === "/" || pathname.startsWith("/projects/");
   const isAboutActive = pathname === "/about" || pathname === "/about/";
   const isResumeActive = pathname === "/resume" || pathname === "/resume/";
@@ -14,8 +15,55 @@ export default function Sidebar() {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    let previousY = window.scrollY;
+
+    const syncVisibility = () => {
+      if (window.innerWidth > 699) {
+        setIsMobileNavVisible(true);
+        previousY = window.scrollY;
+        return;
+      }
+
+      if (isMenuOpen) {
+        setIsMobileNavVisible(true);
+        previousY = window.scrollY;
+        return;
+      }
+
+      const currentY = window.scrollY;
+      const delta = currentY - previousY;
+
+      if (currentY <= 12) {
+        setIsMobileNavVisible(true);
+      } else if (delta > 24) {
+        setIsMobileNavVisible(false);
+      } else if (delta < -16) {
+        setIsMobileNavVisible(true);
+      }
+
+      previousY = currentY;
+    };
+
+    syncVisibility();
+    window.addEventListener("scroll", syncVisibility, { passive: true });
+    window.addEventListener("resize", syncVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", syncVisibility);
+      window.removeEventListener("resize", syncVisibility);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <aside className="sidebar" aria-label="Site navigation">
+    <aside
+      className={`sidebar${isMenuOpen ? " is-menu-open" : ""}${isMobileNavVisible ? "" : " is-mobile-hidden"}`}
+      aria-label="Site navigation"
+    >
       <div className="mobile-nav-bar">
         <button
           type="button"
