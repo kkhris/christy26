@@ -6,7 +6,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, "../dist");
 const serverEntryPath = path.join(distDir, "server/entry-prerender.js");
 const templatePath = path.join(distDir, "index.html");
-const basePath = "/christy26";
+const basePath = (() => {
+  const base = process.env.SITE_BASE || "/";
+  if (!base || base === "/") {
+    return "";
+  }
+
+  return `/${base.replace(/^\/+|\/+$/g, "")}`;
+})();
 
 const routes = [
   { url: `${basePath}/`, output: "index.html" },

@@ -1,6 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+function normalizeBase(base) {
+  if (!base || base === "/") {
+    return "/";
+  }
+
+  return `/${base.replace(/^\/+|\/+$/g, "")}/`;
+}
+
 function trailingSlashRedirect() {
   const directoryRoutes = new Set([
     "/about",
@@ -40,7 +48,7 @@ function trailingSlashRedirect() {
 }
 
 export default defineConfig({
-  base: "/christy26/",
+  base: normalizeBase(process.env.SITE_BASE || "/"),
   appType: "spa",
   plugins: [react(), trailingSlashRedirect()],
 });

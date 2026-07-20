@@ -7,9 +7,18 @@ import BlueGuardian from "./pages/projects/BlueGuardian";
 import NusIss from "./pages/projects/NusIss";
 import Wildlight from "./pages/projects/Wildlight";
 
+const basePath = (() => {
+  const base = process.env.SITE_BASE || "/";
+  if (!base || base === "/") {
+    return "/";
+  }
+
+  return `/${base.replace(/^\/+|\/+$/g, "")}/`;
+})();
+
 export function render(url) {
   return renderToString(
-    <StaticRouter location={url} basename="/christy26/">
+    <StaticRouter location={url} basename={basePath}>
       <AppRoutes
         components={{
           Home,
