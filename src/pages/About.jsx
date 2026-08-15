@@ -37,6 +37,7 @@ export default function About() {
   const revealTargets = useMemo(
     () => [
       { selector: ".page-reveal-about-hero", delay: 0 },
+      { selector: ".page-reveal-about-story", delay: 200 },
       { selector: ".page-reveal-about-notes", delay: 200 },
     ],
     [],
@@ -55,7 +56,8 @@ export default function About() {
       </header>
 
       <div
-        className="about-story"
+        className="about-story page-reveal-target page-reveal-grid page-reveal-about-story"
+        style={{ "--page-reveal-y": "200px", "--page-reveal-duration": "1000ms" }}
       >
         <div className="about-copy">
           <p>
@@ -78,8 +80,7 @@ export default function About() {
           src={assetPath("/assets/about-flowers.jpg")}
           alt="Close-up photo of flowers"
           loading="eager"
-          decoding="sync"
-          fetchpriority="high"
+          decoding="async"
         />
       </div>
 
