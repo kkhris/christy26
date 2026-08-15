@@ -8,7 +8,7 @@ const SCROLL_STORAGE_PREFIX = "app-scroll:";
 export default function useScrollManager(scrollRef) {
   const location = useLocation();
   const navigationType = useNavigationType();
-  const previousPathnameRef = useRef(location.pathname);
+  const activePathnameRef = useRef(location.pathname);
 
   useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined" || !window.history) {
@@ -25,14 +25,16 @@ export default function useScrollManager(scrollRef) {
 
   useEffect(() => {
     const scrollRoot = scrollRef.current;
-    const storageKey = `${SCROLL_STORAGE_PREFIX}${location.pathname}`;
 
     if (!scrollRoot || typeof window === "undefined") {
       return undefined;
     }
 
     const savePosition = () => {
-      window.sessionStorage.setItem(storageKey, String(scrollRoot.scrollTop));
+      window.sessionStorage.setItem(
+        `${SCROLL_STORAGE_PREFIX}${activePathnameRef.current}`,
+        String(scrollRoot.scrollTop),
+      );
     };
 
     savePosition();
@@ -42,7 +44,7 @@ export default function useScrollManager(scrollRef) {
       savePosition();
       scrollRoot.removeEventListener("scroll", savePosition);
     };
-  }, [location.pathname, scrollRef]);
+  }, [scrollRef]);
 
   useIsomorphicLayoutEffect(() => {
     const scrollRoot = scrollRef.current;
@@ -51,10 +53,18 @@ export default function useScrollManager(scrollRef) {
       return;
     }
 
-    const previousPathname = previousPathnameRef.current;
-    previousPathnameRef.current = location.pathname;
+    const previousPathname = activePathnameRef.current;
     const isHistoryRestore =
       previousPathname !== location.pathname && navigationType === "POP";
+
+    if (typeof window !== "undefined" && previousPathname !== location.pathname) {
+      window.sessionStorage.setItem(
+        `${SCROLL_STORAGE_PREFIX}${previousPathname}`,
+        String(scrollRoot.scrollTop),
+      );
+    }
+
+    activePathnameRef.current = location.pathname;
 
     const restoreTop = () => {
       resetScrollPosition(scrollRoot);
