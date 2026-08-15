@@ -306,7 +306,6 @@ code {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    scroll-behavior: smooth;
     overscroll-behavior-y: contain;
     scrollbar-gutter: stable;
     width: calc(100vw - var(--page-left));

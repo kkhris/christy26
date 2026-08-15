@@ -3,18 +3,11 @@ export function resetScrollPosition(scrollRoot) {
     return;
   }
 
-  scrollRoot.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "auto",
-  });
+  scrollRoot.scrollTop = 0;
+  scrollRoot.scrollLeft = 0;
 
   if (typeof window !== "undefined") {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
+    window.scrollTo(0, 0);
   }
 }
 
@@ -27,7 +20,8 @@ export function smoothScrollWithinContainer(scrollRoot, targetTop, duration = 11
   const distance = targetTop - startTop;
 
   if (Math.abs(distance) < 1) {
-    scrollRoot.scrollTo({ top: targetTop, left: 0, behavior: "auto" });
+    scrollRoot.scrollTop = targetTop;
+    scrollRoot.scrollLeft = 0;
     return;
   }
 

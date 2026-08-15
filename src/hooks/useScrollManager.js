@@ -70,11 +70,8 @@ export default function useScrollManager(scrollRef) {
       const parsedTop = savedTop === null ? NaN : Number(savedTop);
 
       if (Number.isFinite(parsedTop)) {
-        scrollRoot.scrollTo({
-          top: parsedTop,
-          left: 0,
-          behavior: "auto",
-        });
+        scrollRoot.scrollTop = parsedTop;
+        scrollRoot.scrollLeft = 0;
         return;
       }
 
