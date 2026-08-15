@@ -48,9 +48,12 @@ export default function useScrollManager(scrollRef) {
 
   useIsomorphicLayoutEffect(() => {
     const scrollRoot = scrollRef.current;
+    let frame = 0;
+    let retryFrame = 0;
+    let resizeObserver;
 
     if (!scrollRoot) {
-      return;
+      return undefined;
     }
 
     const previousPathname = activePathnameRef.current;
@@ -80,8 +83,46 @@ export default function useScrollManager(scrollRef) {
       const parsedTop = savedTop === null ? NaN : Number(savedTop);
 
       if (Number.isFinite(parsedTop)) {
-        scrollRoot.scrollTop = parsedTop;
-        scrollRoot.scrollLeft = 0;
+        const applySavedPosition = () => {
+          scrollRoot.scrollTop = parsedTop;
+          scrollRoot.scrollLeft = 0;
+        };
+
+        const maxScrollableTop = () =>
+          Math.max(scrollRoot.scrollHeight - scrollRoot.clientHeight, 0);
+
+        const restoreWhenReady = (attempt = 0) => {
+          applySavedPosition();
+
+          if (scrollRoot.scrollTop >= parsedTop - 1) {
+            return;
+          }
+
+          if (attempt >= 24) {
+            return;
+          }
+
+          retryFrame = window.requestAnimationFrame(() => {
+            restoreWhenReady(attempt + 1);
+          });
+        };
+
+        restoreWhenReady();
+
+        if (
+          typeof window.ResizeObserver !== "undefined" &&
+          maxScrollableTop() < parsedTop
+        ) {
+          resizeObserver = new window.ResizeObserver(() => {
+            if (maxScrollableTop() >= parsedTop) {
+              applySavedPosition();
+              resizeObserver?.disconnect();
+              resizeObserver = undefined;
+            }
+          });
+          resizeObserver.observe(scrollRoot);
+        }
+
         return;
       }
 
@@ -98,7 +139,7 @@ export default function useScrollManager(scrollRef) {
       return;
     }
 
-    const frame = window.requestAnimationFrame(() => {
+    frame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         if (isHistoryRestore) {
           restoreSaved();
@@ -110,6 +151,8 @@ export default function useScrollManager(scrollRef) {
 
     return () => {
       window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(retryFrame);
+      resizeObserver?.disconnect();
     };
   }, [location.pathname, navigationType, scrollRef]);
 }
