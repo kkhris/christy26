@@ -8,7 +8,7 @@ const SCROLL_STORAGE_PREFIX = "app-scroll:";
 export default function useScrollManager(scrollRef) {
   const location = useLocation();
   const navigationType = useNavigationType();
-  const pathnameRef = useRef(location.pathname);
+  const previousPathnameRef = useRef(location.pathname);
 
   useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined" || !window.history) {
@@ -25,16 +25,14 @@ export default function useScrollManager(scrollRef) {
 
   useEffect(() => {
     const scrollRoot = scrollRef.current;
+    const storageKey = `${SCROLL_STORAGE_PREFIX}${location.pathname}`;
 
     if (!scrollRoot || typeof window === "undefined") {
       return undefined;
     }
 
     const savePosition = () => {
-      window.sessionStorage.setItem(
-        `${SCROLL_STORAGE_PREFIX}${pathnameRef.current}`,
-        String(scrollRoot.scrollTop),
-      );
+      window.sessionStorage.setItem(storageKey, String(scrollRoot.scrollTop));
     };
 
     savePosition();
@@ -53,8 +51,10 @@ export default function useScrollManager(scrollRef) {
       return;
     }
 
-    const previousPathname = pathnameRef.current;
-    pathnameRef.current = location.pathname;
+    const previousPathname = previousPathnameRef.current;
+    previousPathnameRef.current = location.pathname;
+    const isHistoryRestore =
+      previousPathname !== location.pathname && navigationType === "POP";
 
     const restoreTop = () => {
       resetScrollPosition(scrollRoot);
@@ -81,7 +81,7 @@ export default function useScrollManager(scrollRef) {
       restoreTop();
     };
 
-    if (previousPathname !== location.pathname && navigationType === "POP") {
+    if (isHistoryRestore) {
       restoreSaved();
     } else {
       restoreTop();
@@ -92,11 +92,13 @@ export default function useScrollManager(scrollRef) {
     }
 
     const frame = window.requestAnimationFrame(() => {
-      if (previousPathname !== location.pathname && navigationType === "POP") {
-        restoreSaved();
-      } else {
-        restoreTop();
-      }
+      window.requestAnimationFrame(() => {
+        if (isHistoryRestore) {
+          restoreSaved();
+        } else {
+          restoreTop();
+        }
+      });
     });
 
     return () => {
