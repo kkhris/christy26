@@ -5,10 +5,11 @@ import { loadBlueGuardian, loadNusIss, loadWildlight } from "../routeLoaders";
 import { assetPath } from "../utils/paths";
 
 const HOME_ENHANCED_MEDIA_DELAY_MS = 1500;
+const HOME_RETURN_SCROLL_KEY = "app-scroll:return:/";
 
 export default function Home() {
   const pageRef = useRef(null);
-  const { transition } = useOutletContext();
+  const { transition, scrollRootRef } = useOutletContext();
   const [enhancedMediaReady, setEnhancedMediaReady] = useState(false);
   const shouldAnimateHome = !transition.isInitialLoad && transition.navigationType !== "POP";
   const homeHeroClassName = shouldAnimateHome
@@ -36,6 +37,20 @@ export default function Home() {
   const primeEnhancedMedia = useCallback(() => {
     setEnhancedMediaReady((current) => current || true);
   }, []);
+
+  const rememberHomeScrollPosition = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const scrollTop = scrollRootRef?.current?.scrollTop;
+    if (!Number.isFinite(scrollTop)) {
+      return;
+    }
+
+    window.sessionStorage.setItem(HOME_RETURN_SCROLL_KEY, String(scrollTop));
+    window.sessionStorage.setItem("app-scroll:/", String(scrollTop));
+  }, [scrollRootRef]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -125,6 +140,7 @@ export default function Home() {
               className="project-media concept-media concept-accenture-artifact"
               to="/projects/wildlight/"
               aria-label="Open Wildlight AI at Accenture"
+              onClick={rememberHomeScrollPosition}
               onPointerEnter={() => {
                 primeEnhancedMedia();
                 void loadWildlight();
@@ -229,6 +245,7 @@ export default function Home() {
               className="project-media neutral-product-media neutral-product-b2b"
               to="/projects/blue-guardian/"
               aria-label="Open Blue Guardian"
+              onClick={rememberHomeScrollPosition}
               onPointerEnter={() => {
                 primeEnhancedMedia();
                 void loadBlueGuardian();
@@ -274,6 +291,7 @@ export default function Home() {
               className="project-media concept-media concept-nus"
               to="/projects/nus-iss/"
               aria-label="Open Design and Research at NUS-ISS"
+              onClick={rememberHomeScrollPosition}
               onPointerEnter={() => {
                 primeEnhancedMedia();
                 void loadNusIss();

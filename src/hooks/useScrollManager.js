@@ -4,6 +4,7 @@ import { resetScrollPosition } from "../utils/scroll";
 
 const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 const SCROLL_STORAGE_PREFIX = "app-scroll:";
+const HOME_RETURN_SCROLL_KEY = `${SCROLL_STORAGE_PREFIX}return:/`;
 
 export default function useScrollManager(scrollRef) {
   const location = useLocation();
@@ -73,13 +74,13 @@ export default function useScrollManager(scrollRef) {
       resetScrollPosition(scrollRoot);
     };
 
-    const restoreSaved = () => {
+    const restoreSaved = (storageKey = `${SCROLL_STORAGE_PREFIX}${location.pathname}`) => {
       if (typeof window === "undefined") {
         restoreTop();
         return;
       }
 
-      const savedTop = window.sessionStorage.getItem(`${SCROLL_STORAGE_PREFIX}${location.pathname}`);
+      const savedTop = window.sessionStorage.getItem(storageKey);
       const parsedTop = savedTop === null ? NaN : Number(savedTop);
 
       if (Number.isFinite(parsedTop)) {
@@ -129,7 +130,14 @@ export default function useScrollManager(scrollRef) {
       restoreTop();
     };
 
-    if (isHistoryRestore) {
+    const shouldRestoreHomeReturnScroll =
+      isHistoryRestore &&
+      location.pathname === "/" &&
+      previousPathname.startsWith("/projects/");
+
+    if (shouldRestoreHomeReturnScroll) {
+      restoreSaved(HOME_RETURN_SCROLL_KEY);
+    } else if (isHistoryRestore) {
       restoreSaved();
     } else {
       restoreTop();
@@ -142,7 +150,11 @@ export default function useScrollManager(scrollRef) {
     frame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         if (isHistoryRestore) {
-          restoreSaved();
+          if (shouldRestoreHomeReturnScroll) {
+            restoreSaved(HOME_RETURN_SCROLL_KEY);
+          } else {
+            restoreSaved();
+          }
         } else {
           restoreTop();
         }
