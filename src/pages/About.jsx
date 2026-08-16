@@ -7,28 +7,28 @@ const notes = [
     title: "Semester in Singapore",
     description: "Heat, humidity, and lots of chicken rice.",
     href: "https://sage-rook-c0d.notion.site/Life-in-Singapore-be-like-dc92a1dba36d45399cfd8741c4ea8a07",
-    coverLight: assetPath("/assets/blogs/01-cover-light.png"),
-    coverDark: assetPath("/assets/blogs/01-cover-dark.png"),
-    hoverLight: assetPath("/assets/blogs/01-hover-light.png"),
-    hoverDark: assetPath("/assets/blogs/01-hover-dark.png"),
+    coverLight: assetPath("/assets/blogs/01-cover-light.webp"),
+    coverDark: assetPath("/assets/blogs/01-cover-dark.webp"),
+    hoverLight: assetPath("/assets/blogs/01-hover-light.webp"),
+    hoverDark: assetPath("/assets/blogs/01-hover-dark.webp"),
   },
   {
     title: "The 3D Era",
     description: "My messy attempt at learning 3D modeling.",
     href: "https://sage-rook-c0d.notion.site/Life-as-a-3D-Modelling-Beginner-34fac252ce46467483c644663921f222",
-    coverLight: assetPath("/assets/blogs/02-cover-light.png"),
-    coverDark: assetPath("/assets/blogs/02-cover-dark.png"),
-    hoverLight: assetPath("/assets/blogs/02-hover-light.png"),
-    hoverDark: assetPath("/assets/blogs/02-hover-dark.png"),
+    coverLight: assetPath("/assets/blogs/02-cover-light.webp"),
+    coverDark: assetPath("/assets/blogs/02-cover-dark.webp"),
+    hoverLight: assetPath("/assets/blogs/02-hover-light.webp"),
+    hoverDark: assetPath("/assets/blogs/02-hover-dark.webp"),
   },
   {
     title: "The Unofficial Bio",
     description: "Things that didn't make it to my resume.",
     href: "https://sage-rook-c0d.notion.site/a-little-bit-more-about-me-272ca89af24680f0a88bf8d910410048",
-    coverLight: assetPath("/assets/blogs/03-cover-light.png"),
-    coverDark: assetPath("/assets/blogs/03-cover-dark.png"),
-    hoverLight: assetPath("/assets/blogs/03-hover-light.png"),
-    hoverDark: assetPath("/assets/blogs/03-hover-dark.png"),
+    coverLight: assetPath("/assets/blogs/03-cover-light.webp"),
+    coverDark: assetPath("/assets/blogs/03-cover-dark.webp"),
+    hoverLight: assetPath("/assets/blogs/03-hover-light.webp"),
+    hoverDark: assetPath("/assets/blogs/03-hover-dark.webp"),
   },
 ];
 
@@ -102,10 +102,10 @@ export default function About() {
               rel="noreferrer"
             >
               <div className="blog-cover" aria-hidden="true">
-                <img className="blog-image blog-image-cover blog-image-light" src={note.coverLight} alt="" />
-                <img className="blog-image blog-image-cover blog-image-dark" src={note.coverDark} alt="" />
-                <img className="blog-image blog-image-hover blog-image-light" src={note.hoverLight} alt="" />
-                <img className="blog-image blog-image-hover blog-image-dark" src={note.hoverDark} alt="" />
+                <img className="blog-image blog-image-cover blog-image-light" src={note.coverLight} alt="" loading="eager" decoding="async" />
+                <img className="blog-image blog-image-cover blog-image-dark" src={note.coverDark} alt="" loading="eager" decoding="async" />
+                <img className="blog-image blog-image-hover blog-image-light" src={note.hoverLight} alt="" loading="eager" decoding="async" />
+                <img className="blog-image blog-image-hover blog-image-dark" src={note.hoverDark} alt="" loading="eager" decoding="async" />
               </div>
               <h3>{note.title}</h3>
               <p>{note.description}</p>
