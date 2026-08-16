@@ -1,43 +1,27 @@
 # Christal Lyu Portfolio
 
-React + Vite single-page app scaffold for Christal Lyu's portfolio.
+Portfolio site for Christal Lyu, built with React and Vite.
 
-## Current Scope
+## Overview
 
-- Persistent left sidebar app shell
-- React Router-based navigation
-- Placeholder pages for home, about, and project routes
-- Minimal layout styling only
+This repository contains the source for a personal portfolio featuring selected product and design case studies, an About page, and supporting navigation for web publishing.
 
-## Routes
+The IBM case study is linked in the live site and is still in progress.
 
-- `/` — Home / Design
-- `/about` — About
-- `/projects/wildlight` — Wildlight
-- `/projects/blue-guardian` — Blue Guardian
-- `/projects/nus-iss` — NUS-ISS
-- `/resume` — placeholder route for future external resume handling
+## Tech Stack
 
-## Project Structure
+- React
+- Vite
+- React Router
+- GitHub Pages
 
-```text
-src/
-├── App.jsx
-├── main.jsx
-├── layouts/
-│   └── AppShell.jsx
-├── components/
-│   └── Sidebar.jsx
-├── pages/
-│   ├── Home.jsx
-│   ├── About.jsx
-│   └── projects/
-│       ├── Wildlight.jsx
-│       ├── BlueGuardian.jsx
-│       └── NusIss.jsx
-└── styles/
-    └── global.css
-```
+## Main Routes
+
+- `/` - Home
+- `/about` - About
+- `/projects/wildlight/` - Wildlight case study
+- `/projects/blue-guardian/` - Blue Guardian case study
+- `/projects/nus-iss/` - NUS-ISS case study
 
 ## Local Development
 
@@ -46,8 +30,12 @@ npm install
 npm run dev
 ```
 
-## Build
+## Production Build
 
 ```sh
 npm run build
 ```
+
+## Deployment
+
+This site is deployed with GitHub Pages via GitHub Actions.
