@@ -1239,22 +1239,6 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   padding-bottom: 0;
 }
 
-@media (min-width: 1440px) {
-  .about-photo {
-    height: clamp(360px, 20vw, 390px);
-    aspect-ratio: auto;
-    object-position: center 30%;
-  }
-
-  .case-study {
-    max-width: min(1030px, calc(100% - 220px));
-  }
-
-  .case-section p {
-    max-width: 970px;
-  }
-}
-
 .case-section {
   scroll-margin-top: 56px;
   margin: 0 0 clamp(132px, 9.6vw, 168px);
@@ -2688,6 +2672,26 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   .case-footer-soundtrack:hover .case-footer-soundtrack-title,
   .case-footer-soundtrack:focus-visible .case-footer-soundtrack-title {
     text-decoration-color: rgba(237, 237, 237, 0.3);
+  }
+}
+
+@media (min-width: 1440px) {
+  .about-photo {
+    height: clamp(360px, 20vw, 390px);
+    aspect-ratio: auto;
+    object-position: center 30%;
+  }
+
+  .case-study {
+    max-width: min(1100px, calc(100% - 220px));
+  }
+
+  .case-section p {
+    max-width: 1040px;
+  }
+
+  .case-section .case-source {
+    max-width: none;
   }
 }
 
