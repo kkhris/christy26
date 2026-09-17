@@ -2676,14 +2676,18 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
 }
 
 @media (min-width: 1440px) {
+  .about-story {
+    grid-template-columns: minmax(380px, 0.38fr) minmax(0, 1fr);
+  }
+
   .about-photo {
-    height: clamp(360px, 20vw, 390px);
+    height: clamp(380px, 20vw, 390px);
     aspect-ratio: auto;
     object-position: center 30%;
   }
 
   .case-study {
-    max-width: min(1100px, calc(100% - 220px));
+    max-width: min(1100px, calc(100% - 270px));
   }
 
   .case-section p {
