@@ -295,7 +295,7 @@ code {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   html,
   body {
     height: 100%;
@@ -313,6 +313,10 @@ code {
     box-sizing: border-box;
     max-width: none;
   }
+}
+
+.home-page {
+  max-width: 1514px;
 }
 
 @media (max-width: 1279px) {
@@ -1141,6 +1145,7 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
 }
 
 .case-intro-group {
+  max-width: 1514px;
   margin-bottom: clamp(64px, 5vw, 88px);
 }
 
@@ -2685,9 +2690,16 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
     aspect-ratio: auto;
     object-position: center 30%;
   }
+}
 
+@media (min-width: 1600px) {
   .case-study {
     max-width: min(1100px, calc(100% - 270px));
+  }
+
+  .case-nav {
+    right: auto;
+    left: min(calc(var(--page-left) + 1300px), calc(100vw - 198px));
   }
 
   .case-section p {
@@ -2699,18 +2711,30 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   }
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .case-study {
+    max-width: 930px;
+  }
+
+  .case-section p {
+    max-width: 870px;
+  }
+}
+
+@media (max-width: 1599px) {
   .case-nav {
     display: none;
   }
+}
 
+@media (max-width: 1199px) {
   .case-meta {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   html,
   body,
   #root {
@@ -2792,7 +2816,9 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   }
 
   .about-photo {
-    aspect-ratio: 4 / 3;
+    height: clamp(239px, 50vw, 560px);
+    aspect-ratio: auto;
+    object-position: center 30%;
   }
 
   .blog-grid {
