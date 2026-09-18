@@ -2713,15 +2713,19 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
 
 @media (min-width: 1200px) and (max-width: 1599px) {
   .case-study {
-    max-width: 930px;
+    max-width: min(930px, calc(100% - 230px));
   }
 
   .case-section p {
     max-width: 870px;
   }
+
+  .case-nav {
+    right: clamp(28px, 2.4vw, 42px);
+  }
 }
 
-@media (max-width: 1599px) {
+@media (max-width: 1199px) {
   .case-nav {
     display: none;
   }

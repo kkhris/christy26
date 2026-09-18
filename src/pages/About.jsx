@@ -51,7 +51,7 @@ export default function About() {
         className="intro page-reveal-target page-reveal-grid page-reveal-about-hero"
         style={{ "--page-reveal-y": "200px", "--page-reveal-duration": "1000ms" }}
       >
-        <h1>Hi! I&apos;m Christal ツ</h1>
+        <h1>Hi! I&apos;m Christal ◡̈</h1>
         <p>From pixels to people, I build products with innovation and heart.</p>
       </header>
 
