@@ -78,7 +78,7 @@ export default function About() {
         <img
           className="about-photo"
           src={assetPath("/assets/about-flowers.jpg")}
-          alt="Close-up photo of flowers"
+          alt="Christal standing by the waterfront"
           loading="eager"
           decoding="async"
         />
