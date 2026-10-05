@@ -973,7 +973,7 @@ code {
   max-width: none;
   aspect-ratio: 1.98 / 1;
   object-fit: cover;
-  object-position: center;
+  object-position: center 70%;
   border-radius: 4px;
   justify-self: end;
 }
@@ -2688,7 +2688,7 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   .about-photo {
     height: clamp(380px, 20vw, 390px);
     aspect-ratio: auto;
-    object-position: center 30%;
+    object-position: center 70%;
   }
 }
 
@@ -2822,7 +2822,7 @@ html:not(.js) .about-page .blog-card:focus-visible .blog-image-hover {
   .about-photo {
     height: clamp(239px, 50vw, 560px);
     aspect-ratio: auto;
-    object-position: center 30%;
+    object-position: center 70%;
   }
 
   .blog-grid {
