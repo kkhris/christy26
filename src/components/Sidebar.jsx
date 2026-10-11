@@ -107,7 +107,7 @@ export default function Sidebar() {
             LinkedIn
             <ArrowIcon />
           </a>
-          <a href="mailto:y44lyu@uwaterloo.ca">
+          <a href="mailto:lyuchristal@gmail.com">
             Email
             <ArrowIcon />
           </a>

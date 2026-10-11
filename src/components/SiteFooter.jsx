@@ -13,7 +13,7 @@ export default function SiteFooter({ className = "site-footer", style, ariaLabel
           LinkedIn
           <ArrowIcon />
         </a>
-        <a href="mailto:y44lyu@uwaterloo.ca">
+        <a href="mailto:lyuchristal@gmail.com">
           Email
           <ArrowIcon />
         </a>
