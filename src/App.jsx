@@ -1,6 +1,5 @@
 import { lazy } from "react";
 import AppRoutes from "./AppRoutes";
-import About from "./pages/About";
 import Home from "./pages/Home";
 import { loadBlueGuardian, loadNusIss, loadWildlight } from "./routeLoaders";
 
@@ -13,7 +12,6 @@ export default function App() {
     <AppRoutes
       components={{
         Home,
-        About,
         Wildlight,
         BlueGuardian,
         NusIss,

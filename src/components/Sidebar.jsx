@@ -8,7 +8,6 @@ export default function Sidebar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
   const isWorkActive = pathname === "/" || pathname.startsWith("/projects/");
-  const isAboutActive = pathname === "/about" || pathname === "/about/";
   const isResumeActive = pathname === "/resume" || pathname === "/resume/";
 
   useEffect(() => {
@@ -85,9 +84,6 @@ export default function Sidebar() {
       >
         <NavLink to="/" end className={isWorkActive ? "is-active" : undefined}>
           Work
-        </NavLink>
-        <NavLink to="/about/" className={isAboutActive ? "is-active" : undefined}>
-          About
         </NavLink>
         <a
           href={RESUME_URL}

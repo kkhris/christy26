@@ -20,13 +20,14 @@ function SuspendedRoute({ component: Component }) {
 }
 
 export default function AppRoutes({ components }) {
-  const { Home, About, Wildlight, BlueGuardian, NusIss } = components;
+  const { Home, Wildlight, BlueGuardian, NusIss } = components;
 
   return (
     <Routes>
       <Route path="/" element={<AppShell />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={<Navigate to="/" replace />} />
+        <Route path="about-timeline-draft" element={<Navigate to="/" replace />} />
         <Route path="projects">
           <Route path="wildlight" element={<SuspendedRoute component={Wildlight} />} />
           <Route path="blue-guardian" element={<SuspendedRoute component={BlueGuardian} />} />
